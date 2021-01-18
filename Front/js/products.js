@@ -1,5 +1,8 @@
-/* **************Création page Products************ */
+/* ******************** PRODUCTS PAGE ******************** */
+
+/* ******************** CREATION PAGE PRODUCTS ******************** */
 async function detailCameraProd() {
+	// ********** APPEL API ********** //
 	const queryString = window.location.search;
 	console.log(queryString);
 
@@ -12,6 +15,7 @@ async function detailCameraProd() {
 	const detailCamera = await Ajax('cameras/' + id, 'GET');
 	console.log(detailCamera);
 
+	// ********** ELEMENT HOME SECTION PRODUCTS.HTML ********* //
 	let detailProduit = document.getElementById('detailProduit');
 
 	//Création des balises sous forme d'une card
@@ -22,6 +26,7 @@ async function detailCameraProd() {
 	let detailCameraDescription = document.createElement('p');
 	let detailCheck = document.createElement('div');
 	let detailSelect = document.createElement('select');
+	let detailSelectOptions = document.createElement('option');
 	let detailPrice = document.createElement('h4');
 	let detailBtn = document.createElement('button');
 
@@ -46,14 +51,17 @@ async function detailCameraProd() {
 	detailDescription.appendChild(detailPrice);
 	detailDescription.appendChild(detailCheck);
 	detailCheck.appendChild(detailSelect);
+	detailSelect.appendChild(detailSelectOptions);
 	detailCheck.appendChild(detailBtn);
 
 	//Contenu des balises
 	detailName.textContent = detailCamera.name;
 	detailPrice.textContent = detailCamera.price / 100 + 'euros';
 	detailCameraDescription.textContent = detailCamera.description;
-	detailBtn.textContent = 'Ajouter';
+	detailSelectOptions.textContent = '--Choisissez votre objectif--';
+	detailBtn.textContent = 'Ajouter à mon panier';
 
+	//Affiche les options disponible selon le produit
 	let select = document.getElementById('selects');
 	for (let i = 0; i < detailCamera.lenses.length; i++) {
 		let option = document.createElement('option');
@@ -61,12 +69,18 @@ async function detailCameraProd() {
 		option.textContent = detailCamera.lenses[i];
 	}
 
+	// ********** ELEMENT ADD-CART BUTTON PRODUCTS.HTML ********* //
 	let carts = document.getElementById('add-cart');
 
+	// Ajout nombre de produit lors d'un click sur le bouton ajouter
 	carts.addEventListener('click', function () {
+		// On lance la fonction nombre d'article dans le panier lors du click
 		cartNumbers(detailCamera);
+		// On lance la fonction total du prix des articles dans le panier
+		totalCost(detailCamera);
 	});
 
+	// Fonction qui affiche le nombre d'article dans le panier même lorsque la page est actualisé
 	function onLoadCartNumbers() {
 		let productNumbers = localStorage.getItem('cartNumbers');
 
@@ -75,6 +89,7 @@ async function detailCameraProd() {
 		}
 	}
 
+	// Fonction nombre d'article dans le panier
 	function cartNumbers(detailCamera) {
 		let productNumbers = localStorage.getItem('cartNumbers');
 		productNumbers = parseInt(productNumbers);
@@ -89,24 +104,46 @@ async function detailCameraProd() {
 		setItems(detailCamera);
 	}
 
+	// Fonction qui permet d'ajouter un produit different dans le panier
 	function setItems(detailCamera) {
-		let cartItems = localStorage.getItem('productsInCart');
+		let cartItems = localStorage.getItem('productInCart');
 		cartItems = JSON.parse(cartItems);
-		if (cartItems != null) {
-			cartItems[detailCamera.name].inCart + 1;
-		} else {
-			detailCamera.inCart += 1;
-			cartItems = {
-				[detailCamera.name]: detailCamera
-			}
-		}
-		
-		localStorage.setItem('ProductsInCart', JSON.stringify(cartItems));
 
-		
+		if (cartItems != null) {
+			if (cartItems[detailCamera.name] == undefined) {
+				detailCamera.inCart = 0;
+				cartItems = {
+					...cartItems,
+					[detailCamera.name]: detailCamera,
+				};
+			}
+
+			cartItems[detailCamera.name].inCart += 1;
+		} else {
+			detailCamera.inCart = 1;
+			cartItems = {
+				[detailCamera.name]: detailCamera,
+			};
+		}
+
+		localStorage.setItem('productInCart', JSON.stringify(cartItems));
 	}
 
+	// Fonction total du prix des articles dans le panier
+	function totalCost(detailCamera) {
+		let cartCost = localStorage.getItem('totalCost');
+
+		if (cartCost != null) {
+			cartCost = parseInt(cartCost);
+			localStorage.setItem('totalCost', cartCost + detailCamera.price);
+		} else {
+			localStorage.setItem('totalCost', detailCamera.price);
+		}
+	}
+
+	// On lance la fonction qui affiche le nombre d'article dans le panier même lorsque la page est actualisée
 	onLoadCartNumbers();
 }
 
+// On lance la fonction qui affiche la fiche produit lors du chargement de la page
 window.onload = detailCameraProd();

@@ -1,7 +1,13 @@
-/* **************Création page index************ */
+/* ******************** MAIN PAGE ******************** */
+
+/* ******************** CREATION MAIN PAGE ******************** */
+// Fonction qui affiche les differents article disponible selon l'API
 async function cameras() {
+
+// ********** APPEL API ********** //
 const cameras = await Ajax("cameras/", "GET");
 
+// ********** ELEMENT HOME SECTION PAGE INDEX.HTML ********* //
 let home = document.getElementById("home")
 
 cameras.forEach((camera) => {
@@ -35,10 +41,10 @@ cameras.forEach((camera) => {
 	produitLink.textContent = "Voir le produit";
 });
 }
+// ON LANCE LA FONCTION CAMERAS DES LE CHARGEMENT DE LA PAGE 
 window.onload = cameras();
 
-
-
+// ON LANCE LA FONCTION QUI AFFICHE LE NOMBRE D'ARTICLE DANS LE PANIER
 function onLoadCartNumbers() {
 	let productNumbers = localStorage.getItem("cartNumbers");	
 
