@@ -1,0 +1,26 @@
+/* ******************** Style des boutons ******************** */
+.btn {
+	height: 40px;
+	width: 150px;
+	border-radius: 5px;
+	border: 1px solid grey;
+	cursor: pointer;
+	font-weight: bold;
+}
+
+.btnDecreaseIncrease {
+	color: $colour-icons;
+	cursor: pointer;
+}
+
+.btnAnim:hover {
+	-webkit-transform: scale(1.01);
+	-moz-transform: scale(1.01);
+	-ms-transform: scale(1.01);
+	-o-transform: scale(1.01);
+	transform: scale(1.01);
+	transition: all 0.1s linear;
+}
+.btnAnim:active {
+	transform: translateY(2px);
+}

@@ -16,7 +16,13 @@
       <nav>
         <img src="../logo.webp" alt="Orinoco">
         <ul>
-					<li><a href="../index.html">Accueil</a></li>
+					<li class="accueil"><a href="../index.html">< Retour accueil</a></li>
+
+					<li class="cart">
+            <a href="cart.html">
+              <i class="fas fa-shopping-cart"></i>
+            </a><span>0</span>
+          </li>
 					
         </ul>
       </nav>
@@ -30,45 +36,57 @@
 						<h3 class="title">Produit</h3>
 						<h3 class="price">Prix</h3>
 						<h3 class="quantity">Quantité</h3>
-						<h3 class="total">Total</h3>
+						<h3 class="total">Sous-total</h3>
 					</div>
 					<div id="products">
-
 					</div>
 
-      </section>
+			</section>
+			<section id="cartEmptyContainer">
+				
+					<div class="cartEmpty">
+						<h4>Votre panier est vide...</h4>
+						<i class="fas fa-shopping-cart"></i>
+						<button class="cartEmptyButton bntAnim" onclick =
+						"window.location.href ='../index.html'">Cliquez ici pour continuer vos achats</button>
+					</div>
+				</section>
+			
 		</main>
 		<footer>
       <div class="footer">
-				<h2>
-					Orinoco<br />
-				</h2>
+				<h2>Orinoco<br /></h2>
+				<h4>Projet 5 du parcours Développeur Web d'OpenClassrooms - Rejoignez moi sur :</h4>
 				<div class="social">
 					<div class="social__mg">
-							<a class="social dimI" href="https://twitter.com"
-								><i class="fab fa-twitter"></i>
-							</a>
+						<a class="social dimI" href="https://github.com/LevequeBenjamin/BenjaminLeveque_P5_15012021"
+							><i class="fab fa-github"></i>
+						</a>
 					</div>
 					<div class="social__mg">
-							<a class="social dimI" href="https://facebook.com"
-								><i class="fab fa-facebook-f"></i>
-								</a
-							>
+						<a class="social dimI" href="https://www.facebook.com/benjamin.lvq.1"
+							><i class="fab fa-facebook-f"></i>
+						</a>
 					</div>
 					<div class="social__mg">
-							<a class="social dimI" href="https://pinterest.com"
-								><i class="fab fa-pinterest-p"></i></a
-							>
+						<a class="social dimI" href="https://twitter.com/LvqueBenjamin2">
+							<i class="fab fa-twitter"></i>
+						</a>
 					</div>
 					<div class="social__mg">
-							<a class="social dimI" href="https://instagram.com"
-								><i class="fab fa-instagram"></i></a
-							>
+						<a class="social dimI" href="https://www.gitkraken.com/invite/kAkk9331"
+						><i class="fab fa-gitkraken"></i></a>
 					</div>
 				</div>
 			</div>
 		</footer>
-		<script src="/Front/js/api.js"></script>
-    <script src="../js/cart.js"></script>
+		<script defer src="../js/api.js"></script>
+		<script defer src="../js/functions/onloadCart.js"></script>
+		<script defer src="../js/cart.js"></script>
+		<script defer src="../js/functions/formulaire.js"></script>
+		<script defer src="../js/functions/cartFunctions.js"></script>
+		<script defer src="../js/functions/generalFunction.js"></script>
+		
+    
 	</body>
 </html>

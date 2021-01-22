@@ -1,6 +1,7 @@
+/* ******************** Page Products ******************** */
+// Styles de la page produit
 #detailProduit{
-  display: flex;
-  justify-content: center;
+  @include flexCenter;
   padding-top: 200px;
   padding-bottom: 100px;
   max-width: 1024px;
@@ -15,16 +16,21 @@
       overflow: hidden;
       position: relative;
       width: 80%;
-      height: 600px;
-      color: #251721;
+      height: 600px;    
         img{
           width: 100%;
           height: 60%;
           border-radius: 3px 3px 0 0;
+          object-fit: cover;
         }
         .detailDescription{
           h3{
             font-size: 1.8rem;
+            color: $colour-primary;
+          }
+          p{
+            color: #493f47;
+            font-weight: normal;
           }
           .checkArticle{
             display: flex;
@@ -32,19 +38,25 @@
             
           }
           .containerLink{
-            display: flex;
-            justify-content: center;
+            @include flexCenter;
             align-items: center;
-            background: $colour-background-start;
+            background: $colour-secondary;
             box-shadow: 5px 5px 20px #cccccc;
             border-radius: 3px;
             height: 30px;
             width: 160px;
+            border: 1px solid grey;
+            cursor: pointer;
+            font-weight: bold;           
           }
           a{
             text-decoration: none;
-            color:#251721;
+            color: $colour-primary;
           }
         }
     }
+}
+
+.accueil a{
+  font-size: 1rem;
 }

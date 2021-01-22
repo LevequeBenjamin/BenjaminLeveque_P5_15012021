@@ -15,7 +15,7 @@ async function detailCameraProd() {
 	const detailCamera = await Ajax('cameras/' + id, 'GET');
 	console.log(detailCamera);
 
-	// ********** ELEMENT HOME SECTION PRODUCTS.HTML ********* //
+	// ********** ELEMENT SECTION PRODUCTS.HTML ********* //
 	let detailProduit = document.getElementById('detailProduit');
 
 	//Création des balises sous forme d'une card
@@ -37,7 +37,7 @@ async function detailCameraProd() {
 	detailDescription.setAttribute('class', 'detailDescription');
 	detailCheck.setAttribute('class', 'checkArticle');
 	detailSelect.setAttribute('id', 'selects');
-	detailBtn.setAttribute('class', 'containerLink');
+	detailBtn.setAttribute('class', 'containerLink btnAnim');
 	detailBtn.setAttribute('id', 'add-cart');
 	detailBtn.setAttribute('type', 'button');
 	detailBtn.setAttribute('href', '#' + detailCamera._id);
@@ -56,10 +56,10 @@ async function detailCameraProd() {
 
 	//Contenu des balises
 	detailName.textContent = detailCamera.name;
-	detailPrice.textContent = detailCamera.price / 100 + 'euros';
+	detailPrice.textContent = detailCamera.price / 100 + ',00 €';
 	detailCameraDescription.textContent = detailCamera.description;
 	detailSelectOptions.textContent = '--Choisissez votre objectif--';
-	detailBtn.textContent = 'Ajouter à mon panier';
+	detailBtn.textContent = 'Ajouter au panier';
 
 	//Affiche les options disponible selon le produit
 	let select = document.getElementById('selects');
@@ -72,78 +72,20 @@ async function detailCameraProd() {
 	// ********** ELEMENT ADD-CART BUTTON PRODUCTS.HTML ********* //
 	let carts = document.getElementById('add-cart');
 
-	// Ajout nombre de produit lors d'un click sur le bouton ajouter
+	// Fonction qui permet d'ajouter un article dans le panier
 	carts.addEventListener('click', function () {
-		// On lance la fonction nombre d'article dans le panier lors du click
+		// Fonction qui permet d'ajouter un article dans le localStorage et d'en afficher le nombre dans le header
 		cartNumbers(detailCamera);
-		// On lance la fonction total du prix des articles dans le panier
+		// Fonction qui calcule le total du prix des articles dans le panier
 		totalCost(detailCamera);
+		// Fonction qui met à jour l'affichage du nombre de produit dans le header
+		onLoadCartNumbers()
 	});
-
-	// Fonction qui affiche le nombre d'article dans le panier même lorsque la page est actualisé
-	function onLoadCartNumbers() {
-		let productNumbers = localStorage.getItem('cartNumbers');
-
-		if (productNumbers) {
-			document.querySelector('.cart span').textContent = productNumbers;
-		}
-	}
-
-	// Fonction nombre d'article dans le panier
-	function cartNumbers(detailCamera) {
-		let productNumbers = localStorage.getItem('cartNumbers');
-		productNumbers = parseInt(productNumbers);
-
-		if (productNumbers) {
-			localStorage.setItem('cartNumbers', productNumbers + 1);
-			document.querySelector('.cart span').textContent = productNumbers + 1;
-		} else {
-			localStorage.setItem('cartNumbers', 1);
-			document.querySelector('.cart span').textContent = 1;
-		}
-		setItems(detailCamera);
-	}
-
-	// Fonction qui permet d'ajouter un produit different dans le panier
-	function setItems(detailCamera) {
-		let cartItems = localStorage.getItem('productInCart');
-		cartItems = JSON.parse(cartItems);
-
-		if (cartItems != null) {
-			if (cartItems[detailCamera.name] == undefined) {
-				detailCamera.inCart = 0;
-				cartItems = {
-					...cartItems,
-					[detailCamera.name]: detailCamera,
-				};
-			}
-
-			cartItems[detailCamera.name].inCart += 1;
-		} else {
-			detailCamera.inCart = 1;
-			cartItems = {
-				[detailCamera.name]: detailCamera,
-			};
-		}
-
-		localStorage.setItem('productInCart', JSON.stringify(cartItems));
-	}
-
-	// Fonction total du prix des articles dans le panier
-	function totalCost(detailCamera) {
-		let cartCost = localStorage.getItem('totalCost');
-
-		if (cartCost != null) {
-			cartCost = parseInt(cartCost);
-			localStorage.setItem('totalCost', cartCost + detailCamera.price);
-		} else {
-			localStorage.setItem('totalCost', detailCamera.price);
-		}
-	}
-
-	// On lance la fonction qui affiche le nombre d'article dans le panier même lorsque la page est actualisée
+	// On lance la fonction qui met à jour l'affichage du nombre d'article dans le header
 	onLoadCartNumbers();
 }
 
-// On lance la fonction qui affiche la fiche produit lors du chargement de la page
 window.onload = detailCameraProd();
+
+
+		

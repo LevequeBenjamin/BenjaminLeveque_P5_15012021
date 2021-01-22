@@ -5,12 +5,12 @@
 async function cameras() {
 
 // ********** APPEL API ********** //
-const cameras = await Ajax("cameras/", "GET");
+const detailCamera = await Ajax("cameras/", "GET");
 
 // ********** ELEMENT HOME SECTION PAGE INDEX.HTML ********* //
 let home = document.getElementById("home")
 
-cameras.forEach((camera) => {
+detailCamera.forEach((camera) => {
 	//Création des balises sous forme de cards
   let produitCard = document.createElement("div");
 	let produitImage = document.createElement("img");
@@ -37,20 +37,12 @@ cameras.forEach((camera) => {
 	
 	//Contenu des balises
 	produitName.textContent = camera.name;
-	produitPrice.textContent = camera.price / 100 + "euros";
+	produitPrice.textContent = camera.price / 100 + ",00 €";
 	produitLink.textContent = "Voir le produit";
 });
 }
-// ON LANCE LA FONCTION CAMERAS DES LE CHARGEMENT DE LA PAGE 
+
 window.onload = cameras();
-
-// ON LANCE LA FONCTION QUI AFFICHE LE NOMBRE D'ARTICLE DANS LE PANIER
-function onLoadCartNumbers() {
-	let productNumbers = localStorage.getItem("cartNumbers");	
-
-	if (productNumbers) {
-		document.querySelector(".cart span").textContent = productNumbers;
-	}
-}
+// On lance la fonction qui permet de mettre à jour l'affichage du nombre d'article dans le panier
 onLoadCartNumbers();
 

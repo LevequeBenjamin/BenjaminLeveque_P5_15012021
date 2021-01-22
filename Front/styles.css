@@ -1,5 +1,10 @@
 @charset "UTF-8";
 /* Définition des couleurs */
+.flexCenter {
+  display: flex;
+  justify-content: center;
+}
+
 /* Définition des polices personnalisées */
 @font-face {
   font-family: "vintage";
@@ -13,11 +18,18 @@
   font-weight: normal;
   font-style: normal;
 }
+@font-face {
+  font-family: "roboto";
+  src: url("./polices/roboto/Roboto-Regular.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
 /* Fin des polices personnalisées */
-/* Eléments principaux du site */
+/* ******************** Eléments principaux du site ******************** */
 body {
-  font-family: "vintage";
   margin: 0;
+  font-family: "roboto";
+  font-weight: bold;
 }
 
 h1 {
@@ -34,6 +46,7 @@ h2 {
 }
 
 h3 {
+  font-family: "vintage";
   font-size: 1.4rem;
   font-weight: normal;
   margin: 0;
@@ -41,9 +54,9 @@ h3 {
 
 h4 {
   font-size: 1.2rem;
-  font-weight: normal;
 }
 
+/* ******************** Header ******************** */
 header {
   margin: 0;
   padding: 0;
@@ -74,6 +87,7 @@ header nav ul li {
   position: relative;
 }
 header nav ul li span {
+  display: none;
   font-family: serif;
   font-weight: bold;
   text-align: center;
@@ -82,26 +96,40 @@ header nav ul li span {
   position: absolute;
   top: -5px;
   right: 8px;
-  font-size: 1rem;
-  background: -webkit-linear-gradient(280deg, #C58B51, #9065E9);
+  font-size: 0.8rem;
+  background: #ffc73a;
   border-radius: 15px;
 }
 header nav ul li a {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   padding: 5px;
   text-decoration: none;
   color: #251721;
 }
 header nav ul li a :hover {
-  color: #9065E9;
+  -webkit-transform: scale(1.02);
+  -moz-transform: scale(1.02);
+  -ms-transform: scale(1.02);
+  -o-transform: scale(1.02);
+  transform: scale(1.02);
+  transition: all 0.1s linear;
+}
+header nav ul li a :active {
+  transform: translateY(2px);
 }
 
+.accueil :hover {
+  transition: all 0.1s linear;
+  color: #99E2D0;
+}
+
+/* ******************** Footer ******************** */
 footer {
-  margin: 0;
+  margin: 100px 0 0 0;
   padding: 0;
   box-sizing: border-box;
   background-color: #F4E9F1;
-  height: 150px;
+  height: 160px;
 }
 footer .footer {
   max-width: 1440px;
@@ -112,9 +140,14 @@ footer .footer {
   align-items: center;
 }
 footer .footer h2 {
-  margin-bottom: 20px;
+  margin-bottom: 0;
   margin-top: 20px;
   color: #251721;
+}
+footer .footer h4 {
+  margin-bottom: 20px;
+  margin-top: 0;
+  font-size: 1rem;
 }
 footer .footer .social {
   display: flex;
@@ -132,8 +165,9 @@ footer .footer .social__mg a :hover {
   color: #9065E9;
 }
 
+/* ******************** Page index ******************** */
 .banderole {
-  background-image: url("/JWDP5/images/thumb-1920-887690.webp");
+  background-image: url("/Front/thumb-1920-887690.webp");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -145,9 +179,9 @@ footer .footer .social__mg a :hover {
 }
 .banderole__title {
   display: flex;
+  justify-content: center;
   text-align: center;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   color: white;
 }
@@ -161,8 +195,8 @@ footer .footer .social__mg a :hover {
   border: 2px solid #251721;
   text-decoration: none;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   border-radius: 30px;
   height: 40px;
   width: 160px;
@@ -170,10 +204,9 @@ footer .footer .social__mg a :hover {
 
 .pageHome {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
+  flex-wrap: wrap;
   padding-top: 50px;
-  padding-bottom: 100px;
   max-width: 1024px;
   margin: auto;
 }
@@ -192,6 +225,7 @@ footer .footer .social__mg a :hover {
   width: 100%;
   height: 80%;
   border-radius: 3px 3px 0 0;
+  object-fit: cover;
 }
 .pageHome .card .description {
   display: flex;
@@ -202,7 +236,7 @@ footer .footer .social__mg a :hover {
 .pageHome .card .view {
   position: absolute;
   width: 93.6%;
-  background: -webkit-linear-gradient(280deg, #C58B51, #9065E9);
+  background: #FFC73A;
   color: #251721;
   font-weight: bold;
   transition: all 0.3s ease-in-out;
@@ -218,8 +252,13 @@ footer .footer .social__mg a :hover {
   text-decoration: none;
 }
 
+.card:active .cart {
+  transform: translateY(10px);
+}
+
+/* ******************** Page Panier ******************** */
 #build {
-  min-height: 800px;
+  min-height: 700px;
   color: #251721;
 }
 #build .recapPanier {
@@ -229,6 +268,7 @@ footer .footer .social__mg a :hover {
   justify-content: center;
 }
 
+/* *************** Panier ******************** */
 .buildTitle {
   padding-left: 10px;
   padding-right: 10px;
@@ -238,6 +278,7 @@ footer .footer .social__mg a :hover {
   display: flex;
   justify-content: space-between;
   border-bottom: 2px solid grey;
+  color: #00397e;
 }
 .buildTitle .title {
   width: 50%;
@@ -267,19 +308,11 @@ footer .footer .social__mg a :hover {
   align-items: center;
   justify-content: space-around;
 }
-#products .product .deleteButtons {
-  color: grey;
-  cursor: pointer;
-}
 #products .product .decreaseButtons {
-  color: grey;
-  margin-right: 3px;
-  cursor: pointer;
+  margin-right: 5px;
 }
 #products .product .increaseButtons {
-  color: grey;
-  margin-left: 3px;
-  cursor: pointer;
+  margin-left: 5px;
 }
 #products .product .titleCart {
   width: 50%;
@@ -288,7 +321,9 @@ footer .footer .social__mg a :hover {
 }
 #products .product .titleCart i:hover {
   transform: scale(1.1);
-  color: #9065E9;
+}
+#products .product .titleCart i:active {
+  transform: scale(1);
 }
 #products .product .priceCart {
   width: 15%;
@@ -299,7 +334,9 @@ footer .footer .social__mg a :hover {
 }
 #products .product .quantityInCart i:hover {
   transform: scale(1.1);
-  color: #99E2D0;
+}
+#products .product .quantityInCart i:active {
+  transform: scale(1);
 }
 #products .product .totalCart {
   width: 15%;
@@ -310,38 +347,95 @@ footer .footer .social__mg a :hover {
   height: 100px;
   margin-left: 20px;
   margin-right: 10px;
+  object-fit: cover;
 }
 
 .productTotalCost {
   display: flex;
   justify-content: flex-end;
   padding: 5px;
+  color: #00397e;
 }
 
 .buttonBuy {
   margin-top: 30px;
+  margin-bottom: 100px;
   display: flex;
   justify-content: flex-end;
 }
 .buttonBuy #buttonContinueAchat {
   margin-right: 5px;
-  height: 40px;
-  width: 150px;
-  background: -webkit-linear-gradient(280deg, #C58B51, #9065E9);
-  border-radius: 5px;
-  cursor: pointer;
-  font-weight: bold;
+  background: #99E2D0;
 }
 .buttonBuy #buttonBuyBuy {
-  margin-right: 5px;
-  height: 40px;
-  width: 150px;
-  background: #99E2D0;
-  border-radius: 5px;
-  cursor: pointer;
-  font-weight: bold;
+  background: #FFC73A;
 }
 
+/* *************** Formulaire de contact ******************** */
+#buyForm {
+  background-color: #f6f6f6;
+  margin: 0 auto;
+  padding: 1em;
+  border: 1px solid #ccc;
+  border-radius: 1em;
+}
+#buyForm label {
+  display: inline-block;
+  width: 90px;
+  text-align: right;
+}
+#buyForm input {
+  font: 1em sans-serif;
+  width: 300px;
+  box-sizing: border-box;
+  border: 1px solid #999;
+}
+#buyForm .formBtnContainer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+#buyForm .formBtnContainer .formBtnValid {
+  background: #FFC73A;
+}
+#buyForm .formBtnContainer .formBtnAnnuler {
+  background: #99E2D0;
+}
+
+form div + div {
+  margin-top: 1em;
+}
+
+/* ******************** Panier vide ******************** */
+#cartEmptyContainer {
+  display: none;
+  padding-top: 100px;
+  min-height: 700px;
+}
+#cartEmptyContainer .cartEmpty {
+  padding-top: 100px;
+  padding-bottom: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+#cartEmptyContainer .cartEmpty i {
+  font-size: 5rem;
+  color: #756372;
+}
+#cartEmptyContainer .cartEmpty .cartEmptyButton {
+  height: 40px;
+  width: 260px;
+  background: #FFC73A;
+  border-radius: 5px;
+  border: 1px solid grey;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 50px;
+}
+
+/* ******************** Page Products ******************** */
 #detailProduit {
   display: flex;
   justify-content: center;
@@ -361,15 +455,20 @@ footer .footer .social__mg a :hover {
   position: relative;
   width: 80%;
   height: 600px;
-  color: #251721;
 }
 #detailProduit .card img {
   width: 100%;
   height: 60%;
   border-radius: 3px 3px 0 0;
+  object-fit: cover;
 }
 #detailProduit .card .detailDescription h3 {
   font-size: 1.8rem;
+  color: #251721;
+}
+#detailProduit .card .detailDescription p {
+  color: #493f47;
+  font-weight: normal;
 }
 #detailProduit .card .detailDescription .checkArticle {
   display: flex;
@@ -379,15 +478,50 @@ footer .footer .social__mg a :hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: -webkit-linear-gradient(280deg, #C58B51, #9065E9);
+  background: #FFC73A;
   box-shadow: 5px 5px 20px #cccccc;
   border-radius: 3px;
   height: 30px;
   width: 160px;
+  border: 1px solid grey;
+  cursor: pointer;
+  font-weight: bold;
 }
 #detailProduit .card .detailDescription a {
   text-decoration: none;
   color: #251721;
+}
+
+.accueil a {
+  font-size: 1rem;
+}
+
+/* ******************** Style des boutons ******************** */
+.btn {
+  height: 40px;
+  width: 150px;
+  border-radius: 5px;
+  border: 1px solid grey;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btnDecreaseIncrease {
+  color: #00397e;
+  cursor: pointer;
+}
+
+.btnAnim:hover {
+  -webkit-transform: scale(1.01);
+  -moz-transform: scale(1.01);
+  -ms-transform: scale(1.01);
+  -o-transform: scale(1.01);
+  transform: scale(1.01);
+  transition: all 0.1s linear;
+}
+
+.btnAnim:active {
+  transform: translateY(2px);
 }
 
 /*# sourceMappingURL=styles.css.map */

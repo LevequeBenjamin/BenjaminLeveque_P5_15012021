@@ -1,51 +1,65 @@
-header{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  background-color: $colour-background;
-  width: 100%;
-  position:fixed;
-  z-index: 1;
-    nav{
-      margin: auto;
-      padding: 0 60px 0 60px;
-      max-width: 1440px;
-      display: flex;
-      justify-content: space-between;
-        ul{
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          padding: 0;
-            li{
-              list-style: none;
-              display: inline-block;
-              padding-right: 10px;
-              padding-left: 10px;
-              position: relative;
-                span{
-                  font-family:serif;
-                  font-weight: bold;
-                  text-align: center;
-                  min-width: 15px;
-                  padding: 3px;
-                  position: absolute;
-                  top : -5px;
-                  right: 8px;
-                  font-size: 1rem;
-                  background: $colour-background-start;
-                  border-radius: 15px;
-                }
-                a{
-                  font-size: 1.8rem;
-                  padding: 5px;
-                  text-decoration: none;
-                  color: #251721;
-                    :hover{
-                      color: #9065E9;
-                    }
-                }
-            }
-        }
-    }
+/* ******************** Header ******************** */
+header {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	background-color: $colour-background;
+	width: 100%;
+	position: fixed;
+	z-index: 1;
+	nav {
+		margin: auto;
+		padding: 0 60px 0 60px;
+		max-width: 1440px;
+		display: flex;
+		justify-content: space-between;
+		ul {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			padding: 0;
+			li {
+				list-style: none;
+				display: inline-block;
+				padding-right: 10px;
+				padding-left: 10px;
+				position: relative;
+				span {
+					display: none;
+					font-family: serif;
+					font-weight: bold;
+					text-align: center;
+					min-width: 15px;
+					padding: 3px;
+					position: absolute;
+					top: -5px;
+					right: 8px;
+					font-size: 0.8rem;
+					background: #ffc73a;
+					border-radius: 15px;
+				}
+				a {
+					font-size: 1.6rem;
+					padding: 5px;
+					text-decoration: none;
+					color: #251721;
+					:hover {
+						-webkit-transform: scale(1.02);
+						-moz-transform: scale(1.02);
+						-ms-transform: scale(1.02);
+						-o-transform: scale(1.02);
+						transform: scale(1.02);
+						transition: all 0.1s linear;
+					}
+					:active {
+						transform: translateY(2px);
+					}
+				}
+			}
+		}
+	}
+}
+.accueil :hover {
+	transition: all 0.1s linear;
+	color: $colour-cart;
 }
