@@ -1,4 +1,5 @@
-// ***** Fonction total du prix des articles dans le panier ***** //
+/* ********** Fonction totalCost ********** */
+// ***** Fonction qui calcule le prix total des articles dans le panier ***** //
 function totalCost(detailCamera, action) {
 	let cartCost = localStorage.getItem('totalCost');
 
@@ -14,7 +15,7 @@ function totalCost(detailCamera, action) {
 	
 }
 
-/* ************************************************************ */
+/* ********** Fonction CartNumbers ********** */
 // ***** Fonction qui permet d'ajouter un article dans le localStorage et d'en afficher le nombre dans le header ***** //
 function cartNumbers(detailCamera, action) {
   let productNumbers = localStorage.getItem('cartNumbers');
@@ -35,6 +36,7 @@ function cartNumbers(detailCamera, action) {
   setItems(detailCamera);
 }
 
+/* ********** Fonction setItems ********** */
 // ***** Si il y a déjà un produit dans le localStorage cette fonction permet d'en ajouter un different de celui qui est déjà présent ***** //
 function setItems(detailCamera) {
 	let cartItems = localStorage.getItem('productInCart');

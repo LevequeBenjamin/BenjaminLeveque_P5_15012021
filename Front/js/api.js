@@ -1,4 +1,4 @@
-/* **************Lien avec l'API**************** */
+/* ************** Lien avec l'API pour retour produits **************** */
 Ajax = (url, method) => {
   return new Promise((resolve) => {
 let request = new XMLHttpRequest();

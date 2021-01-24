@@ -295,54 +295,54 @@ footer .footer .social__mg a :hover {
   text-align: end;
 }
 
-#products {
+#productsContain {
   max-width: 1024px;
   margin: auto;
   display: flex;
   flex-direction: column;
 }
-#products .product {
+#productsContain .product {
   padding: 10px 0 10px 0;
   border-bottom: 1px solid grey;
   display: flex;
   align-items: center;
   justify-content: space-around;
 }
-#products .product .decreaseButtons {
+#productsContain .product .decreaseButtons {
   margin-right: 5px;
 }
-#products .product .increaseButtons {
+#productsContain .product .increaseButtons {
   margin-left: 5px;
 }
-#products .product .titleCart {
+#productsContain .product .titleCart {
   width: 50%;
   display: flex;
   align-items: center;
 }
-#products .product .titleCart i:hover {
+#productsContain .product .titleCart i:hover {
   transform: scale(1.1);
 }
-#products .product .titleCart i:active {
+#productsContain .product .titleCart i:active {
   transform: scale(1);
 }
-#products .product .priceCart {
+#productsContain .product .priceCart {
   width: 15%;
 }
-#products .product .quantityInCart {
+#productsContain .product .quantityInCart {
   width: 15%;
   text-align: center;
 }
-#products .product .quantityInCart i:hover {
+#productsContain .product .quantityInCart i:hover {
   transform: scale(1.1);
 }
-#products .product .quantityInCart i:active {
+#productsContain .product .quantityInCart i:active {
   transform: scale(1);
 }
-#products .product .totalCart {
+#productsContain .product .totalCart {
   width: 15%;
   text-align: end;
 }
-#products img {
+#productsContain img {
   width: 100px;
   height: 100px;
   margin-left: 20px;
@@ -377,7 +377,8 @@ footer .footer .social__mg a :hover {
   margin: 0 auto;
   padding: 1em;
   border: 1px solid #ccc;
-  border-radius: 1em;
+  border-radius: 2px;
+  box-shadow: 5px 5px 20px #cccccc;
 }
 #buyForm label {
   display: inline-block;
@@ -401,9 +402,19 @@ footer .footer .social__mg a :hover {
 #buyForm .formBtnContainer .formBtnAnnuler {
   background: #99E2D0;
 }
+#buyForm .errorForm {
+  color: #D8000C;
+  font-size: 0.8rem;
+  padding: 3px;
+  opacity: 0.6;
+  position: absolute;
+  right: 0px;
+  top: 20px;
+}
 
-form div + div {
+form div {
   margin-top: 1em;
+  position: relative;
 }
 
 /* ******************** Panier vide ******************** */
@@ -494,6 +505,33 @@ form div + div {
 
 .accueil a {
   font-size: 1rem;
+}
+
+.orderContainer {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+}
+.orderContainer h3 {
+  font-size: 2rem;
+}
+.orderContainer a {
+  background-color: white;
+  box-shadow: 5px 5px 20px #251721;
+  color: #251721;
+  border: 2px solid #251721;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;
+  height: 40px;
+  width: 160px;
+}
+.orderContainer .btnOrder :hover {
+  background: #FFC73A;
 }
 
 /* ******************** Style des boutons ******************** */

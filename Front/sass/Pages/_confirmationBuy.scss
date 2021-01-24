@@ -1,0 +1,24 @@
+.orderContainer {
+  @include flexCenter;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+    h3{
+      font-size: 2rem;
+    }
+  a {
+    background-color: white;
+    box-shadow: 5px 5px 20px $colour-primary;
+    color: $colour-primary;
+    border: 2px solid $colour-primary;
+    text-decoration: none;
+    @include flexCenter;
+    align-items: center;
+    border-radius: 30px;
+    height: 40px;
+    width: 160px;
+  }
+  .btnOrder :hover {
+    background: $colour-secondary;
+  }
+}

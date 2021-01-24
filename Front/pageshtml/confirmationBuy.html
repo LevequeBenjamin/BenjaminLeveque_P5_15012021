@@ -15,42 +15,18 @@
 		<header>
 			<nav>
 				<img src="../logo.webp" alt="Orinoco" />
-				<ul>
-					<li class="accueil"><a href="../index.html">< Retour accueil</a></li>
-
-					<li class="cart">
-						<a href="cart.html"> <i class="fas fa-shopping-cart"></i> </a
-						><span>0</span>
-					</li>
-				</ul>
 			</nav>
 		</header>
-		<main>
-			<section id="build">
-				<div class="recapPanier">
-					<h3>Récapitulatif de mon panier</h3>
-				</div>
-				<div class="buildTitle">
-					<h3 class="title">Produit</h3>
-					<h3 class="price">Prix</h3>
-					<h3 class="quantity">Quantité</h3>
-					<h3 class="total">Sous-total</h3>
-				</div>
-				<div id="productsContain"></div>
-			</section>
-			<section id="cartEmptyContainer">
-				<div class="cartEmpty">
-					<h4>Votre panier est vide...</h4>
-					<i class="fas fa-shopping-cart"></i>
-					<button
-						class="cartEmptyButton bntAnim"
-						onclick="window.location.href ='../index.html'"
-					>
-						Cliquez ici pour continuer vos achats
-					</button>
-				</div>
-			</section>
-		</main>
+		<section class="banderole">
+      <div class="orderContainer">
+			<h3>Merci pour votre commande, <span id="orderName"></span>!</h3>
+			<h4>Votre numéro de commande :<span id="orderId"></span></h4>
+			<div class="btnOrder btnAnim">
+				<a href="../index.html">Retour à l'accueil</a>
+			</div>
+			</div>
+		</section>
+    
 		<footer>
 			<div class="footer">
 				<h2>Orinoco<br /></h2>
@@ -88,13 +64,6 @@
 				</div>
 			</div>
 		</footer>
-		<script defer src="../js/api.js"></script>
-		<script defer src="../js/apiPost.js"></script>
-		<script defer src="../js/functions/onloadCart.js"></script>
-		<script defer src="../js/cart.js"></script>
-		<script defer src="../js/functions/formulaire.js"></script>
-		<script defer src="../js/functions/cartFunctions.js"></script>
-		<script defer src="../js/functions/generalFunction.js"></script>
-		<script defer src="../js/functions/formFunctions.js"></script>
+		<script defer src="../js/functions/confirmationBuy.js"></script>
 	</body>
 </html>

@@ -37,7 +37,7 @@
 }
 
 // Styles des produits affichés dans le panier 
-#products {
+#productsContain {
 	max-width: 1024px;
 	margin: auto;
 	display: flex;
@@ -123,7 +123,8 @@
 	margin: 0 auto;
 	padding: 1em;
 	border: 1px solid #ccc;
-	border-radius: 1em;
+	border-radius: 2px;
+	box-shadow: 5px 5px 20px #cccccc;
 	label {
 		display: inline-block;
 		width: 90px;
@@ -146,10 +147,20 @@
 			background: $colour-cart;
 		}
 	}
+	.errorForm {
+		color: #D8000C;
+		font-size: 0.8rem;
+		padding: 3px;
+		opacity: 0.6;
+		position: absolute;
+		right: 0px;
+		top: 20px;	
+	}
 }
 
-form div + div {
+form div{
 	margin-top: 1em;
+	position: relative;
 }
 
 /* ******************** Panier vide ******************** */
@@ -180,3 +191,4 @@ form div + div {
 		}
 	}
 }
+

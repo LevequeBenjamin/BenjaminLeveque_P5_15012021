@@ -9,14 +9,15 @@ async function displayCart() {
 	// ********** ITEM DANS LOCAL STORAGE ********* //
 	let cartItems = localStorage.getItem('productInCart');
 	cartItems = JSON.parse(cartItems);
+	console.log(cartItems);
 
 	// ********** ELEMENT DIV PRODUCTS.HTML ********* //
-	let productContainer = document.getElementById('products');
+	let productContainer = document.getElementById('productsContain');
 	let productNumbers = localStorage.getItem('cartNumbers');
 	let cartEmptyContainers = document.getElementById("cartEmptyContainer");
 
 	let sectionBuild = document.getElementById("build");
-	console.log(cartItems);
+	
 
 	if (cartItems) {
 		productContainer.innerHTML = ' ';
@@ -57,7 +58,7 @@ async function displayCart() {
 			productTotal.setAttribute('class', 'totalCart total');
 
 			//Agencement des éléments
-			products.appendChild(product);
+			productsContain.appendChild(product);
 			product.appendChild(productCart);
 			productCart.appendChild(productIconClose);
 			productCart.appendChild(productImageLink);
@@ -88,7 +89,7 @@ async function displayCart() {
 		productTotalCostCheck.setAttribute('class', 'productTotalCostCheck');
 
 		//Agencement des éléments
-		products.appendChild(productTotalCost);
+		productsContain.appendChild(productTotalCost);
 		productTotalCost.appendChild(productTotalCostCheck);
 
 		//Contenu des balises
@@ -113,7 +114,7 @@ async function displayCart() {
 		buttonBuyBuy.setAttribute('onclick', "location.href = '#buyForm' ");
 
 		//Agencement des éléments
-		products.appendChild(buttonBuy);
+		productsContain.appendChild(buttonBuy);
 		buttonBuy.appendChild(buttonContinueAchat);
 		buttonBuy.appendChild(buttonBuyBuy);
 
@@ -125,7 +126,7 @@ async function displayCart() {
 		// On lance la fonction qui créer le formulaire
 		formulaire();
 		}
-	 if(productNumbers == 0){
+	 if(productNumbers == 0  || productNumbers == null){
 		sectionBuild.style.display = "none";
 		cartEmptyContainers.style.display = "block";
 	}

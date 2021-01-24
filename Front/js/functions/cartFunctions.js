@@ -91,6 +91,21 @@ function manageQuantity() {
 	onLoadCartNumbers();
 }
 
+/* ********** Fonction checkCart ********** */
+//* Fonction qui vérifie si un article est dans le panier *//
+ checkCart = () => {
+  //Vérifier qu'il y ai au moins un produit dans le panier
+  let productNumbers = JSON.parse(localStorage.getItem("cartNumbers"));
+  //Si le panier est vide ou null
+  if  (productNumbers == 0) {
+    alert("Votre panier est vide");
+    return false;
+  } else {
+    console.log("Le panier n'est pas vide");
+    return true;
+  }
+};
+
 
 
 
