@@ -26,14 +26,17 @@ function cartNumbers(detailCamera, action) {
 
     if (action == 'decrease') {
 			localStorage.setItem('cartNumbers', productNumbers - 1);
+			alert("Vous venez de retirer un article "+detailCamera.name+" du panier");
     } else if (productNumbers) {
     localStorage.setItem('cartNumbers', productNumbers + 1);
-    document.querySelector('.cart span').textContent = productNumbers + 1;
+		document.querySelector('.cart span').textContent = productNumbers + 1;
+		alert("Vous venez de mettre l'article "+detailCamera.name+" dans le panier");
   } else {
     localStorage.setItem('cartNumbers', 1);
-    document.querySelector('.cart span').textContent = 1;
+		document.querySelector('.cart span').textContent = 1;
+		alert("Vous venez de mettre l'article "+detailCamera.name+" dans le panier");
   }
-  setItems(detailCamera);
+	setItems(detailCamera);
 }
 
 /* ********** Fonction setItems ********** */

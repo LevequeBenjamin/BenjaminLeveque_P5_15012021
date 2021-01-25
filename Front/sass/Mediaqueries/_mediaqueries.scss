@@ -1,0 +1,63 @@
+/* ******************** Header ******************** */
+// Styles des headers
+@media all and (max-width: 426px){
+  header{
+    nav{
+      padding: 0;
+      ul li{
+        padding-left: 0;
+      }
+    }
+  }
+}
+
+/* ******************** Page Products ******************** */
+// Styles de la page produit
+@media all and(max-width: 426px) {
+  .card{
+    margin: 0 !important;
+    padding: 10px !important;
+    width: 100% !important; 
+  }
+}
+
+/* ******************** Page Panier ******************** */
+// Styles de la page panier
+@media all and(max-width: 515px) {
+  .buildTitle{
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+  .title{
+    width: 40% !important;
+  }
+  .total{
+    width: 30% !important;
+  }
+  .quantity{
+    width: 30% !important;
+  }
+  .titleCart a img{
+    display: none;
+  }
+  h3{
+    font-size: 1rem;
+  }
+  .price{
+    display: none;
+  }
+  .product{
+    padding: 10px 5px 10px 5px !important;
+  }
+  .buttonBuy{
+    justify-content: center !important;
+  }
+  // Formulaire
+  #buyForm{
+    padding: 0 5px 20px 5px;
+    width: 97%;
+  }
+  label{
+    text-align: left !important;
+  }
+}

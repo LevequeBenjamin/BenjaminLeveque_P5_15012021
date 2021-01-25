@@ -1,7 +1,7 @@
-/* ******************** Style des boutons ******************** */
+/* ******************** Style des boutons généraux ******************** */
 .btn {
-	height: 40px;
-	width: 150px;
+	height: 48px;
+	width: 160px;
 	border-radius: 5px;
 	border: 1px solid grey;
 	cursor: pointer;
@@ -24,3 +24,56 @@
 .btnAnim:active {
 	transform: translateY(2px);
 }
+
+/* *************** Panier ******************** */
+// styles des boutons "continuer les achats" et "passer commande"
+.buttonBuy {
+	margin-top: 30px;
+	margin-bottom: 100px;
+	display: flex;
+	justify-content: flex-end;
+
+	#buttonContinueAchat {
+		margin-right: 5px;
+		background: $colour-cart;
+	}
+	#buttonBuyBuy {
+		background: $colour-secondary;
+	}
+}
+
+// Styles du bouton Clear "vider le panier"
+#btnClear{
+	margin: auto;
+	background-color: red;
+	height: 48px;
+	width: 320px;
+	border-radius: 5px;
+	border: 1px solid grey;
+	cursor: pointer;
+	font-weight: bold;
+	margin-top: 50px;
+}
+
+
+/* *************** Panier / Formulaire ******************** */
+// styles des boutons "Annuler continuer les achats" et "Valider le paiement"
+.formBtnValid {
+	background: $colour-secondary;
+}
+.formBtnAnnuler {
+	background: $colour-cart;
+}
+
+/* *************** Page Confirmation commande ******************** */
+.cartEmptyButton {
+	height: 48px;
+	width: 260px;
+	background: $colour-secondary;
+	border-radius: 5px;
+	border: 1px solid grey;
+	cursor: pointer;
+	font-weight: bold;
+	margin-top: 50px;
+}
+

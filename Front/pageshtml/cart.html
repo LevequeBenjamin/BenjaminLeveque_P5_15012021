@@ -3,32 +3,88 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<!-- AJOUT OPEN GRAPH POUR RESEAUX SOCIAUX-->
+		<meta
+			property="og:url"
+			content="https://levequebenjamin.github.io/BenjaminLeveque_5_15012021/"
+		/>
+		<meta
+			property="og:title"
+			content="Orinoco, trouvez l'appareil photo vintage de vos rêves"
+		/>
+		<meta
+			property="og:description"
+			content="Voici l'ensemble des appareils photo vintage que nous proposons à la vente"
+		/>
+		<meta
+			property="og:image"
+			content="https://levequebenjamin.github.io/BenjaminLeveque_5_15012021/Front/logo.png"
+		/>
+
+		<!-- AJOUT META DESCIPTION-->
+		<meta
+			name="description"
+			content="Voici l'ensemble des appareils photo vintage que nous proposons à la vente"
+		/>
+
+		<!-- AJOUT BALISE CANONICAL-->
+		<link
+			href="https://levequebenjamin.github.io/BenjaminLeveque_5_15012021/"
+			rel="canonical"
+		/>
+
+		<!-- BALISES STYLE -->
 		<link rel="stylesheet" href="../styles.css" />
 		<link
 			rel="stylesheet"
 			href="../polices/fontawesome-free-5.15.1-web/css/all.css"
 		/>
-		<title>Orinoco</title>
+
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script
+			async
+			src="https://www.googletagmanager.com/gtag/js?id=G-M7PMS1FWGZ"
+		></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag() {
+				dataLayer.push(arguments);
+			}
+			gtag('js', new Date());
+
+			gtag('config', 'G-M7PMS1FWGZ');
+		</script>
+
+		<title>Orinoco | Page panier</title>
 	</head>
 
+	<!-- Principal conteneur -->
 	<body>
+		<!-- Header -->
 		<header>
 			<nav>
-				<img src="../logo.webp" alt="Orinoco" />
+				<div class="navTitle">
+				<img src="../logoNew.webp" alt="logo Orinoco" />
+				<h1>Orinoco</h1>
+				</div>
 				<ul>
-					<li class="accueil"><a href="../index.html">< Retour accueil</a></li>
+					<li class="accueil"><a href="../index.html">Accueil</a></li>
 
 					<li class="cart">
-						<a href="cart.html"> <i class="fas fa-shopping-cart"></i> </a
-						><span>0</span>
+						<a href="cart.html"> <i class="fas fa-shopping-cart" aria-hidden="true"></i> <span>0</span></a
+							>
 					</li>
 				</ul>
 			</nav>
 		</header>
+		<!-- Header end -->
+		<!-- Main -->
 		<main>
+			<!-- Principal conteneur pour importation produits dans le panier -->
 			<section id="build">
 				<div class="recapPanier">
-					<h3>Récapitulatif de mon panier</h3>
+					<h2>Récapitulatif de mon panier</h2>
 				</div>
 				<div class="buildTitle">
 					<h3 class="title">Produit</h3>
@@ -38,6 +94,8 @@
 				</div>
 				<div id="productsContain"></div>
 			</section>
+			<!-- Principal conteneur pour importation produits dans le panier end-->
+			<!-- Section panier vide -->
 			<section id="cartEmptyContainer">
 				<div class="cartEmpty">
 					<h4>Votre panier est vide...</h4>
@@ -50,44 +108,49 @@
 					</button>
 				</div>
 			</section>
+			<!-- Section panier vide end-->
 		</main>
+		<!-- Main end -->
+		<!-- Footer -->
 		<footer>
 			<div class="footer">
 				<h2>Orinoco<br /></h2>
-				<h4>
+				<p>
 					Projet 5 du parcours Développeur Web d'OpenClassrooms - Rejoignez moi
 					sur :
-				</h4>
+				</p>
 				<div class="social">
 					<div class="social__mg">
 						<a
 							class="social dimI"
 							href="https://github.com/LevequeBenjamin/BenjaminLeveque_P5_15012021"
-							><i class="fab fa-github"></i>
+							><i class="fab fa-github" aria-hidden="true"></i><span class="hors-ecran">Marche : </span>
 						</a>
 					</div>
 					<div class="social__mg">
 						<a
 							class="social dimI"
 							href="https://www.facebook.com/benjamin.lvq.1"
-							><i class="fab fa-facebook-f"></i>
+							><i class="fab fa-facebook-f" aria-hidden="true"></i><span class="hors-ecran">Marche : </span>
 						</a>
 					</div>
 					<div class="social__mg">
 						<a class="social dimI" href="https://twitter.com/LvqueBenjamin2">
-							<i class="fab fa-twitter"></i>
+							<i class="fab fa-twitter" aria-hidden="true"></i><span class="hors-ecran">Marche : </span>
 						</a>
 					</div>
 					<div class="social__mg">
 						<a
 							class="social dimI"
 							href="https://www.gitkraken.com/invite/kAkk9331"
-							><i class="fab fa-gitkraken"></i
-						></a>
+							><i class="fab fa-gitkraken" aria-hidden="true"></i
+						><span class="hors-ecran">Marche : </span></a>
 					</div>
 				</div>
 			</div>
 		</footer>
+		<!-- Footer end -->
+		<!-- Balises script JS -->
 		<script defer src="../js/api.js"></script>
 		<script defer src="../js/apiPost.js"></script>
 		<script defer src="../js/functions/onloadCart.js"></script>
@@ -97,4 +160,5 @@
 		<script defer src="../js/functions/generalFunction.js"></script>
 		<script defer src="../js/functions/formFunctions.js"></script>
 	</body>
+	<!-- Principal conteneur end-->
 </html>

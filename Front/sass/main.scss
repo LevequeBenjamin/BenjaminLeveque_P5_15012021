@@ -1,6 +1,5 @@
 @import "Utils/variables";
 @import "Utils/mixin";
-@import "Utils/keyframes";
 @import "Utils/flexCenter";
 @import "Base/base";
 @import "Layout/body";
@@ -8,6 +7,8 @@
 @import "Layout/footer";
 @import "Pages/accueil";
 @import "Pages/cart";
+@import "Mediaqueries/mediaqueries";
 @import "Pages/product";
 @import "Pages/confirmationBuy.scss";
 @import "Composants/btn";
+

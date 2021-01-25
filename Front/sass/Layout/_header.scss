@@ -3,6 +3,7 @@ header {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+	height: 70px;
 	background-color: $colour-background;
 	width: 100%;
 	position: fixed;
@@ -13,6 +14,15 @@ header {
 		max-width: 1440px;
 		display: flex;
 		justify-content: space-between;
+		.navTitle{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 50px;
+				img{
+					margin-top: 15px;
+				}
+		}
 		ul {
 			display: flex;
 			align-items: center;
@@ -35,14 +45,14 @@ header {
 					top: -5px;
 					right: 8px;
 					font-size: 0.8rem;
-					background: #ffc73a;
+					background: $colour-secondary;
 					border-radius: 15px;
 				}
 				a {
 					font-size: 1.6rem;
 					padding: 5px;
 					text-decoration: none;
-					color: #251721;
+					color: $colour-primary;
 					:hover {
 						-webkit-transform: scale(1.02);
 						-moz-transform: scale(1.02);

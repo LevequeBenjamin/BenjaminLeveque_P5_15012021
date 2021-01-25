@@ -126,10 +126,25 @@ async function displayCart() {
 		// On lance la fonction qui créer le formulaire
 		formulaire();
 		}
+
+		/* ********** CREATION DU BOUTON VIDER LE PANIER ********** */
+		let btnAnnuler = document.createElement('button');
+		//Ajout des attributs au balise pour la création du style
+		btnAnnuler.setAttribute('class', 'formBtnAnnuler btnAnim');
+		btnAnnuler.setAttribute("id", "btnClear");
+		//Agencement des éléments
+		productsContain.appendChild(btnAnnuler);
+		//Contenu des balises
+		btnAnnuler.textContent = 'Vider le panier';
+
+	 // On affiche le panier vide si le localStorage est vide
 	 if(productNumbers == 0  || productNumbers == null){
 		sectionBuild.style.display = "none";
 		cartEmptyContainers.style.display = "block";
-	}
+	 }
+
+	// On lance la fonction qui permet de vider le panier
+	btnClear();
 	// On lance la fonction qui permet de supprimer un article dans le panier
 	deleteButtons();
 	// On lance la fonction qui permet d'ajouter ou de supprimer un article dans le panier

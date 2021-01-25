@@ -3,76 +3,137 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- AJOUT BALISE ROBOTS -->
+		<meta name="robots" content="index, follow" />
+
+		<!-- AJOUT OPEN GRAPH POUR RESEAUX SOCIAUX-->
+		<meta
+			property="og:url"
+			content="https://levequebenjamin.github.io/BenjaminLeveque_5_15012021/"
+		/>
+		<meta
+			property="og:title"
+			content="Orinoco, trouvez l'appareil photo vintage de vos rêves"
+		/>
+		<meta
+			property="og:description"
+			content="Voici l'ensemble des appareils photo vintage que nous proposons à la vente"
+		/>
+		<meta
+			property="og:image"
+			content="https://levequebenjamin.github.io/BenjaminLeveque_5_15012021/Front/logo.png"
+		/>
+
+		<!-- AJOUT META DESCIPTION-->
+		<meta
+			name="description"
+			content="Voici l'ensemble des appareils photo vintage que nous proposons à la vente"
+		/>
+
+		<!-- AJOUT BALISE CANONICAL-->
+		<link
+			href="https://levequebenjamin.github.io/BenjaminLeveque_5_15012021/"
+			rel="canonical"
+		/>
+
+		<!-- BALISES STYLE -->
 		<link rel="stylesheet" href="styles.css" />
 		<link
 			rel="stylesheet"
 			href="polices/fontawesome-free-5.15.1-web/css/all.css"
 		/>
-		<title>Orinoco</title>
+
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script
+			async
+			src="https://www.googletagmanager.com/gtag/js?id=G-M7PMS1FWGZ"
+		></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag() {
+				dataLayer.push(arguments);
+			}
+			gtag('js', new Date());
+
+			gtag('config', 'G-M7PMS1FWGZ');
+		</script>
+
+		<title>Orinoco | Trouvez l'appareil photo vintage de vos rêve</title>
 	</head>
 
+	<!-- Principal conteneur -->
 	<body>
+		<!-- Header -->
 		<header>
 			<nav>
-				<img src="logo.webp" alt="Orinoco" />
+				<div class="navTitle"><img src="logoNew.webp" alt="logo Orinoco" /><h1>Orinoco</h1></div>
 				<ul>
 					<li class="cart">
 						<a href="pageshtml/cart.html">
-							<i class="fas fa-shopping-cart"></i></a
-						><span class="numbersCart">0</span>
+							<i class="fas fa-shopping-cart" aria-hidden="true"></i><span class="numbersCart">0</span></a
+							>
 					</li>
 				</ul>
 			</nav>
 		</header>
+		<!-- Header end -->
+		<!-- Section banderole -->
 		<section class="banderole">
 			<div class="banderole__title">
-				<h1>Orinoco</h1>
-				<h2>Découvrez notre sélection d'appareil photo vintage</h2>
+				<h2>Orinoco</h2>
+				<h3>Découvrez notre sélection d'appareil photo vintage</h3>
 				<div class="boutonHome btnAnim">
 					<a href="#home">Découvrez ></a>
 				</div>
 			</div>
 		</section>
+		<!-- Section banderole end -->
+		<!-- Principal conteneur pour importation produits -->
 		<main id="home" class="pageHome"></main>
+		<!-- Principal conteneur pour importation end-->
+		<!-- Footer -->
 		<footer>
 			<div class="footer">
 				<h2>Orinoco<br /></h2>
-				<h4>
+				<p>
 					Projet 5 du parcours Développeur Web d'OpenClassrooms - Rejoignez moi
 					sur :
-				</h4>
+				</p>
 				<div class="social">
 					<div class="social__mg">
 						<a
 							class="social dimI"
 							href="https://github.com/LevequeBenjamin/BenjaminLeveque_P5_15012021"
-							><i class="fab fa-github"></i>
+							><i class="fab fa-github" aria-hidden="true"></i><span class="hors-ecran">Marche : </span>
 						</a>
 					</div>
 					<div class="social__mg">
 						<a
 							class="social dimI"
 							href="https://www.facebook.com/benjamin.lvq.1"
-							><i class="fab fa-facebook-f"></i>
+							><i class="fab fa-facebook-f" aria-hidden="true"></i><span class="hors-ecran">Marche : </span>
 						</a>
 					</div>
 					<div class="social__mg">
 						<a class="social dimI" href="https://twitter.com/LvqueBenjamin2">
-							<i class="fab fa-twitter"></i>
+							<i class="fab fa-twitter" aria-hidden="true"></i><span class="hors-ecran">Marche : </span>
 						</a>
 					</div>
 					<div class="social__mg">
 						<a
 							class="social dimI"
 							href="https://www.gitkraken.com/invite/kAkk9331"
-							><i class="fab fa-gitkraken"></i
-						></a>
+							><i class="fab fa-gitkraken" aria-hidden="true"></i
+						><span class="hors-ecran">Marche : </span></a>
 					</div>
 				</div>
 			</div>
 		</footer>
+		<!-- Footer end -->
+		<!-- Balises script JS -->
 		<script defer src="js/api.js"></script>
 		<script defer src="js/functions/onloadCart.js"></script>
 		<script defer src="js/main.js"></script>
 	</body>
+	<!-- Principal conteneur end-->
 </html>

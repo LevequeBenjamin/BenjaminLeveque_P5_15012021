@@ -88,4 +88,5 @@ async function detailCameraProd() {
 window.onload = detailCameraProd();
 
 
+
 		

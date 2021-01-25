@@ -30,6 +30,16 @@ function deleteButtons() {
 	}	
 }
 
+/* ********** Fonction btnClear ********** */
+//* Fonction qui permet de vider le panier **//
+function btnClear () {
+	let btnClear = document.getElementById("btnClear");
+	btnClear.addEventListener("click", function () {
+		localStorage.clear();
+		displayCart();
+	})
+}
+
 /* ********** Fonction boutons - ET + ********** */
 //* Fonction qui permet d'ajouter ou de supprimer un article dans le panier *//
 function manageQuantity() {

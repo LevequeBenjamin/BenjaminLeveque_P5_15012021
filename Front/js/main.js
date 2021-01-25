@@ -23,7 +23,7 @@ detailCamera.forEach((camera) => {
 	produitCard.setAttribute("class", "card");
 	produitDescription.setAttribute("class", "description");
 	produitImage.setAttribute("src", camera.imageUrl); 
-	produitImage.setAttribute("alt", "image du produit"); 
+	produitImage.setAttribute("alt", "appareil photo vintage"); 
 	produitLink.setAttribute("href", "pageshtml/products.html?id=" + camera._id);
 	produitLink.setAttribute("class", "cart view");
 

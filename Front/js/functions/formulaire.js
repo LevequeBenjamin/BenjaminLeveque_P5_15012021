@@ -32,7 +32,6 @@ async function formulaire() {
 	let spanCinq = document.createElement('span');
 
 	let formBtnContainer = document.createElement('div');
-	let btnAnnuler = document.createElement('button');
 	let btnValid = document.createElement('button');
 
 	//Ajout des attributs au balise pour la création du style
@@ -75,7 +74,6 @@ async function formulaire() {
 	spanCinq.setAttribute('class', 'errorForm');
 
 	formBtnContainer.setAttribute('class', 'formBtnContainer');
-	btnAnnuler.setAttribute('class', 'formBtnAnnuler btn btnAnim');
 	btnValid.setAttribute('id', 'btnValid');
 	btnValid.setAttribute('class', 'formBtnValid btn btnAnim');
 
@@ -116,7 +114,6 @@ async function formulaire() {
 	registerDivCinq.appendChild(spanCinq);
 
 	formRegister.appendChild(formBtnContainer);
-	formBtnContainer.appendChild(btnAnnuler);
 	formBtnContainer.appendChild(btnValid);
 
 	//Contenu des balises
@@ -129,8 +126,8 @@ async function formulaire() {
 	divQuatreLabel.textContent = 'Ville*';
 	divCinqLabel.textContent = 'Email*';
 
-	btnAnnuler.textContent = 'Annuler et continuer les achats';
 	btnValid.textContent = 'Valider le paiement';
 
 	validerOrder();
 }
+

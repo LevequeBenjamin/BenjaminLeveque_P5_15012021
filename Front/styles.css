@@ -33,10 +33,11 @@ body {
 }
 
 h1 {
-  font-size: 8rem;
+  font-size: 2.5rem;
   font-family: "paint";
   font-weight: normal;
   margin-bottom: 0;
+  color: #251721;
 }
 
 h2 {
@@ -61,6 +62,7 @@ header {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  height: 70px;
   background-color: #F4E9F1;
   width: 100%;
   position: fixed;
@@ -72,6 +74,15 @@ header nav {
   max-width: 1440px;
   display: flex;
   justify-content: space-between;
+}
+header nav .navTitle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+}
+header nav .navTitle img {
+  margin-top: 15px;
 }
 header nav ul {
   display: flex;
@@ -97,7 +108,7 @@ header nav ul li span {
   top: -5px;
   right: 8px;
   font-size: 0.8rem;
-  background: #ffc73a;
+  background: #FFC73A;
   border-radius: 15px;
 }
 header nav ul li a {
@@ -138,13 +149,14 @@ footer .footer {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
 }
 footer .footer h2 {
   margin-bottom: 0;
   margin-top: 20px;
   color: #251721;
 }
-footer .footer h4 {
+footer .footer p {
   margin-bottom: 20px;
   margin-top: 0;
   font-size: 1rem;
@@ -163,6 +175,11 @@ footer .footer .social__mg a {
 }
 footer .footer .social__mg a :hover {
   color: #9065E9;
+}
+
+.hors-ecran {
+  position: absolute;
+  left: -99999rem;
 }
 
 /* ******************** Page index ******************** */
@@ -188,6 +205,15 @@ footer .footer .social__mg a :hover {
 .banderole__title .boutonHome :hover {
   background: -webkit-linear-gradient(280deg, #C58B51, #9065E9);
 }
+.banderole__title h2 {
+  font-size: 8rem;
+  margin-bottom: 40px;
+}
+.banderole__title h3 {
+  font-family: "paint";
+  font-size: 3rem;
+  margin-bottom: 40px;
+}
 .banderole__title a {
   background-color: white;
   box-shadow: 5px 5px 20px #251721;
@@ -198,7 +224,7 @@ footer .footer .social__mg a :hover {
   justify-content: center;
   align-items: center;
   border-radius: 30px;
-  height: 40px;
+  height: 48px;
   width: 160px;
 }
 
@@ -266,6 +292,12 @@ footer .footer .social__mg a :hover {
   padding-bottom: 40px;
   display: flex;
   justify-content: center;
+}
+#build .recapPanier h2 {
+  font-family: "vintage";
+  font-size: 1.4rem;
+  font-weight: normal;
+  margin: 0;
 }
 
 /* *************** Panier ******************** */
@@ -357,20 +389,6 @@ footer .footer .social__mg a :hover {
   color: #00397e;
 }
 
-.buttonBuy {
-  margin-top: 30px;
-  margin-bottom: 100px;
-  display: flex;
-  justify-content: flex-end;
-}
-.buttonBuy #buttonContinueAchat {
-  margin-right: 5px;
-  background: #99E2D0;
-}
-.buttonBuy #buttonBuyBuy {
-  background: #FFC73A;
-}
-
 /* *************** Formulaire de contact ******************** */
 #buyForm {
   background-color: #f6f6f6;
@@ -380,10 +398,15 @@ footer .footer .social__mg a :hover {
   border-radius: 2px;
   box-shadow: 5px 5px 20px #cccccc;
 }
+#buyForm p {
+  font-size: 0.8rem;
+  color: #D8000C;
+}
 #buyForm label {
   display: inline-block;
   width: 90px;
   text-align: right;
+  margin-right: 5px;
 }
 #buyForm input {
   font: 1em sans-serif;
@@ -395,12 +418,6 @@ footer .footer .social__mg a :hover {
   display: flex;
   justify-content: space-around;
   align-items: center;
-}
-#buyForm .formBtnContainer .formBtnValid {
-  background: #FFC73A;
-}
-#buyForm .formBtnContainer .formBtnAnnuler {
-  background: #99E2D0;
 }
 #buyForm .errorForm {
   color: #D8000C;
@@ -435,17 +452,72 @@ form div {
   font-size: 5rem;
   color: #756372;
 }
-#cartEmptyContainer .cartEmpty .cartEmptyButton {
-  height: 40px;
-  width: 260px;
-  background: #FFC73A;
-  border-radius: 5px;
-  border: 1px solid grey;
-  cursor: pointer;
-  font-weight: bold;
-  margin-top: 50px;
-}
 
+/* ******************** Header ******************** */
+@media all and (max-width: 426px) {
+  header nav {
+    padding: 0;
+  }
+  header nav ul li {
+    padding-left: 0;
+  }
+}
+/* ******************** Page Products ******************** */
+@media all and (max-width: 426px) {
+  .card {
+    margin: 0 !important;
+    padding: 10px !important;
+    width: 100% !important;
+  }
+}
+/* ******************** Page Panier ******************** */
+@media all and (max-width: 515px) {
+  .buildTitle {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  .title {
+    width: 40% !important;
+  }
+
+  .total {
+    width: 30% !important;
+  }
+
+  .quantity {
+    width: 30% !important;
+  }
+
+  .titleCart a img {
+    display: none;
+  }
+
+  h3 {
+    font-size: 1rem;
+  }
+
+  .price {
+    display: none;
+  }
+
+  .product {
+    padding: 10px 5px 10px 5px !important;
+  }
+
+  .buttonBuy {
+    justify-content: center !important;
+  }
+
+  #buyForm {
+    padding: 0 5px 20px 5px;
+    width: 97%;
+  }
+
+  label {
+    text-align: left !important;
+  }
+}
 /* ******************** Page Products ******************** */
 #detailProduit {
   display: flex;
@@ -507,6 +579,7 @@ form div {
   font-size: 1rem;
 }
 
+/* ******************** Page confirmation commande ******************** */
 .orderContainer {
   display: flex;
   justify-content: center;
@@ -534,10 +607,10 @@ form div {
   background: #FFC73A;
 }
 
-/* ******************** Style des boutons ******************** */
+/* ******************** Style des boutons généraux ******************** */
 .btn {
-  height: 40px;
-  width: 150px;
+  height: 48px;
+  width: 160px;
   border-radius: 5px;
   border: 1px solid grey;
   cursor: pointer;
@@ -560,6 +633,54 @@ form div {
 
 .btnAnim:active {
   transform: translateY(2px);
+}
+
+/* *************** Panier ******************** */
+.buttonBuy {
+  margin-top: 30px;
+  margin-bottom: 100px;
+  display: flex;
+  justify-content: flex-end;
+}
+.buttonBuy #buttonContinueAchat {
+  margin-right: 5px;
+  background: #99E2D0;
+}
+.buttonBuy #buttonBuyBuy {
+  background: #FFC73A;
+}
+
+#btnClear {
+  margin: auto;
+  background-color: red;
+  height: 48px;
+  width: 320px;
+  border-radius: 5px;
+  border: 1px solid grey;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 50px;
+}
+
+/* *************** Panier / Formulaire ******************** */
+.formBtnValid {
+  background: #FFC73A;
+}
+
+.formBtnAnnuler {
+  background: #99E2D0;
+}
+
+/* *************** Page Confirmation commande ******************** */
+.cartEmptyButton {
+  height: 48px;
+  width: 260px;
+  background: #FFC73A;
+  border-radius: 5px;
+  border: 1px solid grey;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 50px;
 }
 
 /*# sourceMappingURL=styles.css.map */
