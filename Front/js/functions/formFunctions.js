@@ -1,17 +1,57 @@
-/* ********** Fonction checkInput ********** */
+/* ********** Fonction commander ********** */
 // ********** VERIFICATION INPUT ET VALIDATION FORMULAIRE ********** //
+class ValiderOrder {
+	constructor() {
+		this.validerOrder();
+	}
+
+	validerOrder() {
+		let products = [];
+		let commander = document.getElementById('btnValid');
+		let cartItems = localStorage.getItem('productInCart');
+		cartItems = JSON.parse(cartItems);
+
+		commander.addEventListener('click', event => {
+			event.preventDefault();
+			//Si le panier n'est pas vide et que le formulaire est valide => Construction du tableau products envoyé à l'API
+			if (checkCart() == true && checkInput() != null) {
+				console.log("L'envoi peut etre fait");
+				Object.values(cartItems).map(item => {
+					products.push(item._id);
+				});
+				//Création de l'objet à envoyer
+				let commande = {
+					contact,
+					products,
+				};
+
+				let sendForm = JSON.stringify(commande);
+				envoiFormulaire(sendForm, url);
+				console.log(commande);
+
+				//Une fois la commande effectuée retour à l'état initial des tableaux/objet/
+				contact = {};
+				products = [];
+			} else {
+				console.log('ERROR');
+			}
+		});
+	}
+}
+
+/* ********** Fonction checkInput ********** */
+// ********** VERIFICATION INPUT ********** //
 //vérifie les inputs du formulaire
 checkInput = () => {
 	//Controle Regex
 	let checkNumber = /[0-9]/;
-	let checkMail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+	let checkMail = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g;
 	let checkSpecialCharacter = /[§!@#$%^&*().?":{}|<>]/;
 
 	//message fin de controle
 	let checkMessage = '';
 
 	//Récupération des inputs
-
 	let nom = document.getElementById('lastName').value;
 	let prenom = document.getElementById('firstName').value;
 	let adresse = document.getElementById('address').value;
@@ -104,53 +144,23 @@ checkInput = () => {
 	}
 	//Si le formulaire est validé => construction de l'objet contact
 	else {
-		contact = {
-			lastName: nom,
-			firstName: prenom,
-			address: adresse,
-			city: ville,
-			email: email,
-		};
+		contact = new Contact(nom, prenom, adresse, ville, email);
+		console.log(contact);
 		return contact;
 	}
 };
 
-/* ********** Fonction commander ********** */
-// ********** VERIFICATION INPUT ET VALIDATION FORMULAIRE ********** //
-function validerOrder () {
-let products = [];
-let commander = document.getElementById('btnValid');
-let cartItems = localStorage.getItem('productInCart');
-cartItems = JSON.parse(cartItems);
-
-commander.addEventListener('click', event => {
-	event.preventDefault();
-	//Si le panier n'est pas vide et que le formulaire est valie => Construction du tableau products envoyé à l'API
-	if (checkCart() == true && checkInput() != null) {
-		console.log("L'envoi peut etre fait");
-		Object.values(cartItems).map(item => {
-			products.push(item._id);
-		});
-
-		//Création de l'objet à envoyer
-		let commande = {
-			contact,
-			products,
-		};
-
-		console.log(commande);
-
-		let sendForm = JSON.stringify(commande);
-		envoiFormulaire(sendForm, url);
-		console.log(commande);
-
-		//Une fois la commande effectuée retour à l'état initial des tableaux/objet/localStorage
-
-		contact = {};
-		produits = [];
-		localStorage.clear();
+/* ********** Fonction checkCart ********** */
+//* Fonction qui vérifie si un article est dans le panier *//
+function checkCart() {
+	//Vérifier qu'il y ai au moins un produit dans le panier
+	let productNumbers = JSON.parse(localStorage.getItem('cartNumbers'));
+	//Si le panier est vide ou null
+	if (productNumbers == 0) {
+		alert('Votre panier est vide');
+		return false;
 	} else {
-		console.log('ERROR');
+		console.log("Le panier n'est pas vide");
+		return true;
 	}
-});
 }
