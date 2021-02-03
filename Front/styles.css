@@ -397,7 +397,7 @@ footer .footer .social__mg a :hover {
   object-fit: cover;
 }
 
-.productTotalCost {
+.productTotalPrice {
   display: flex;
   justify-content: flex-end;
   padding: 5px;

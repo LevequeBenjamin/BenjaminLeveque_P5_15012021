@@ -1,16 +1,16 @@
-/* ********** Fonction totalCost ********** */
+/* ********** Fonction totalPrice ********** */
 // ***** Fonction qui calcule le prix total des articles dans le panier ***** //
 function totalPrice(products, action) {
-	let cartCost = localStorage.getItem('totalCost');
+	let cartPrice = localStorage.getItem('totalPrice');
 
 	if (action == 'decrease') {
-		cartCost = parseInt(cartCost);
-		localStorage.setItem('totalCost', cartCost - products.price);
-	} else if (cartCost != null) {
-		cartCost = parseInt(cartCost);
-		localStorage.setItem('totalCost', cartCost + products.price);
+		cartPrice = parseInt(cartPrice);
+		localStorage.setItem('totalPrice', cartPrice - products.price);
+	} else if (cartPrice != null) {
+		cartPrice = parseInt(cartPrice);
+		localStorage.setItem('totalPrice', cartPrice + products.price);
 	} else {
-		localStorage.setItem('totalCost', products.price);
+		localStorage.setItem('totalPrice', products.price);
 	}
 }
 

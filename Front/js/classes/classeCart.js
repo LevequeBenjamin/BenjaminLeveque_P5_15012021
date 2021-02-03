@@ -101,20 +101,20 @@ class Cart {
 				(products.inCart * products.price) / 100 + ',00 €';
 		}
 		/* ********** CREATION STRUCTURE POUR IMPORT DU TOTAL ********** */
-		let cartCost = localStorage.getItem('totalCost');
-		let productTotalCost = document.createElement('div');
-		let productTotalCostCheck = document.createElement('div');
+		let cartPrice = localStorage.getItem('totalPrice');
+		let productTotalPrice = document.createElement('div');
+		let productTotalPriceCheck = document.createElement('div');
 
 		//Ajout des attributs au balise pour la création du style
-		productTotalCost.setAttribute('class', 'productTotalCost');
-		productTotalCostCheck.setAttribute('class', 'productTotalCostCheck');
+		productTotalPrice.setAttribute('class', 'productTotalPrice');
+		productTotalPriceCheck.setAttribute('class', 'productTotalPriceCheck');
 
 		//Agencement des éléments
-		productContainer.appendChild(productTotalCost);
-		productTotalCost.appendChild(productTotalCostCheck);
+		productContainer.appendChild(productTotalPrice);
+		productTotalPrice.appendChild(productTotalPriceCheck);
 
 		//Contenu des balises
-		productTotalCostCheck.textContent = `TOTAL TTC : ${cartCost / 100},00€`;
+		productTotalPriceCheck.textContent = `TOTAL TTC : ${cartPrice / 100},00€`;
 
 		/* ********** CREATION STRUCTURE POUR IMPORT BOUTONS ********** */
 		let buttonBuy = document.createElement('div');
@@ -179,7 +179,7 @@ class Cart {
 		let productNumbers = localStorage.getItem('cartNumbers');
 		let cartItems = localStorage.getItem('productInCart');
 		cartItems = JSON.parse(cartItems);
-		let cartCost = localStorage.getItem('totalCost');
+		let cartPrice = localStorage.getItem('totalPrice');
 
 		for (let i = 0; i < deleteButtons.length; i++) {
 			deleteButtons[i].addEventListener('click', () => {
@@ -190,8 +190,8 @@ class Cart {
 					productNumbers - cartItems[productName].inCart,
 				);
 				localStorage.setItem(
-					'totalCost',
-					cartCost -
+					'totalPrice',
+					cartPrice -
 						cartItems[productName].price * cartItems[productName].inCart,
 				);
 				delete cartItems[productName];
