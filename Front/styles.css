@@ -184,7 +184,7 @@ footer .footer .social__mg a :hover {
 
 /* ******************** Page index ******************** */
 .banderole {
-  background-image: url("/Front/thumb-1920-887690.webp");
+  background-image: url("/Front/photosFront/thumb-1920-887690.webp");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -282,6 +282,13 @@ footer .footer .social__mg a :hover {
   transform: translateY(10px);
 }
 
+.cart:focus {
+  bottom: 50px;
+  opacity: 1 !important;
+  padding: 10px;
+  text-decoration: none;
+}
+
 /* ******************** Page Panier ******************** */
 #build {
   min-height: 700px;
@@ -351,11 +358,15 @@ footer .footer .social__mg a :hover {
   display: flex;
   align-items: center;
 }
-#productsContain .product .titleCart i:hover {
+#productsContain .product .titleCart button:hover {
   transform: scale(1.1);
 }
-#productsContain .product .titleCart i:active {
+#productsContain .product .titleCart button:active {
   transform: scale(1);
+}
+#productsContain .product .titleCart button {
+  border: none;
+  background-color: white;
 }
 #productsContain .product .priceCart {
   width: 15%;
@@ -364,11 +375,15 @@ footer .footer .social__mg a :hover {
   width: 15%;
   text-align: center;
 }
-#productsContain .product .quantityInCart i:hover {
+#productsContain .product .quantityInCart button:hover {
   transform: scale(1.1);
 }
-#productsContain .product .quantityInCart i:active {
+#productsContain .product .quantityInCart button:active {
   transform: scale(1);
+}
+#productsContain .product .quantityInCart button {
+  border: none;
+  background-color: white;
 }
 #productsContain .product .totalCart {
   width: 15%;
@@ -518,6 +533,32 @@ form div {
     text-align: left !important;
   }
 }
+@media all and (max-width: 410px) {
+  .errorForm {
+    left: 0;
+    top: 40px !important;
+  }
+}
+/* ******************** Page 404 ******************** */
+@media all and (max-width: 768px) {
+  .noFound h1 {
+    font-size: 4rem !important;
+  }
+  .noFound h2 {
+    font-size: 1rem !important;
+  }
+  .noFound p {
+    font-size: 1rem !important;
+  }
+  .noFound .noFoundImg img {
+    max-height: 200px !important;
+  }
+}
+@media all and (max-width: 480px) {
+  .noFound {
+    flex-direction: column-reverse;
+  }
+}
 /* ******************** Page Products ******************** */
 #detailProduit {
   display: flex;
@@ -605,6 +646,47 @@ form div {
 }
 .orderContainer .btnOrder :hover {
   background: #FFC73A;
+}
+
+.noFound {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 100px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 100px;
+  max-width: 1024px;
+  margin: auto;
+  color: #251721;
+}
+.noFound h1 {
+  font-family: "roboto";
+  font-weight: bold;
+  font-size: 6rem;
+}
+.noFound h2 {
+  font-family: "roboto";
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+.noFound p {
+  font-size: 1.5rem;
+}
+.noFound .noFoundImg img {
+  object-fit: contain;
+  max-height: 300px;
+}
+.noFound ul li {
+  list-style: none;
+  padding: 8px;
+}
+.noFound ul li a {
+  text-decoration: none;
+  color: #00397e;
+}
+.noFound ul li a:hover {
+  color: #9065E9;
 }
 
 /* ******************** Style des boutons généraux ******************** */

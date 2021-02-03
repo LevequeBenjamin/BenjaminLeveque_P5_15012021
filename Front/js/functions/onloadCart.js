@@ -16,4 +16,4 @@ class OnLoadCartNumbers {
 		}
 	}
 }
-let onLoadCartNumbers = new OnLoadCartNumbers();
+new OnLoadCartNumbers();

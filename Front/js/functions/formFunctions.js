@@ -1,11 +1,11 @@
 /* ********** Fonction commander ********** */
 // ********** VERIFICATION INPUT ET VALIDATION FORMULAIRE ********** //
-class ValiderOrder {
+class ValidOrder {
 	constructor() {
-		this.validerOrder();
+		this.validOrder();
 	}
 
-	validerOrder() {
+	validOrder() {
 		let products = [];
 		let commander = document.getElementById('btnValid');
 		let cartItems = localStorage.getItem('productInCart');
@@ -164,3 +164,6 @@ function checkCart() {
 		return true;
 	}
 }
+
+
+

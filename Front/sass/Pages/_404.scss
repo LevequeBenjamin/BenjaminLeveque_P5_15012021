@@ -1,0 +1,40 @@
+.noFound{
+  @include flexCenter;
+  align-items: center;
+  padding-top: 100px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 100px;
+  max-width: 1024px;
+  margin: auto;
+  color: $colour-primary;
+    h1{
+      font-family: 'roboto';
+      font-weight: bold;
+      font-size: 6rem;
+    }
+    h2{
+      font-family: 'roboto';
+      font-weight: bold;
+      font-size: 1.5rem;
+    }
+    p{
+      font-size: 1.5rem;
+    }
+    .noFoundImg img{
+      object-fit: contain;
+      max-height: 300px;
+    }
+    ul li{
+      list-style: none;
+      padding: 8px;
+    }
+    ul li a{
+      text-decoration: none;
+      color: $colour-icons;
+    }
+    ul li a:hover{
+      color: #9065E9;
+    }
+}
+

@@ -1,15 +1,15 @@
 /* ************** Création objet main **************** */
 class Main {
 	constructor() {
-		this.cameras();
+		this.displayProducts();
 	}
 	/* ********** Fonction cameras ********** */
 	//* Fonction qui créer la structure et affiche les produits *//
-	async cameras() {
+	async displayProducts() {
 		// ********** APPEL API ********** //
 		const detailCamera = await Ajax('cameras/', 'GET');
 		console.log(detailCamera);
-		
+
 		//Construction des objets products
 		for (let i = 0; i < detailCamera.length; i++) {
 			let products = new Products(
@@ -60,3 +60,8 @@ class Main {
 		}
 	}
 }
+
+/* ******************** MAIN PAGE ******************** */
+
+/* ******************** CREATION MAIN PAGE ******************** */
+new Main();

@@ -1,7 +1,7 @@
 /* ******************** Page index ******************** */
 // Styles de la banderole
 .banderole {
-	background-image: url('/Front/thumb-1920-887690.webp');
+	background-image: url("/Front/photosFront/thumb-1920-887690.webp");
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
@@ -93,4 +93,11 @@
 }
 .card:active .cart {
 	transform: translateY(10px);
+}
+
+.cart:focus {
+	bottom: 50px;
+	opacity: 1 !important;
+	padding: 10px;
+	text-decoration: none;
 }

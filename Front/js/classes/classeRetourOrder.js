@@ -24,3 +24,8 @@ class RetourOrder {
 		}
 	}
 }
+
+/* ******************** CONFIRMATIONBUY PAGE ******************** */
+
+/* ******************** CREATION CONFIRMATIONBUY PAGE ******************** */
+new RetourOrder;

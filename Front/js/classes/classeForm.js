@@ -134,6 +134,6 @@ class Formulaire {
 
 		btnValid.textContent = 'Valider le paiement';
 
-		let validerOrder = new ValiderOrder();
+		new ValidOrder();
 	}
 }

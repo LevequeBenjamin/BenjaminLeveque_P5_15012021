@@ -61,3 +61,37 @@
     text-align: left !important;
   }
 }
+
+@media all and(max-width: 410px) {
+  .errorForm{
+    left: 0;
+    top: 40px !important;
+  }
+}
+
+/* ******************** Page 404 ******************** */
+// Styles de la page 404
+@media all and(max-width: 768px) {
+  .noFound{
+    h1{
+      font-size: 4rem !important;
+    }
+    h2{
+      font-size: 1rem !important;
+    }
+    p{
+      font-size: 1rem !important;
+    }
+    .noFoundImg img{
+      max-height: 200px !important;
+    }
+  }
+}
+
+@media all and(max-width: 480px) {
+  .noFound{
+    flex-direction: column-reverse;
+  }
+}
+
+

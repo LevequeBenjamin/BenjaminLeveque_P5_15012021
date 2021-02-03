@@ -64,11 +64,15 @@
 			width: 50%;
 			display: flex;
 			align-items: center;
-			i:hover {
+			button:hover {
 				transform: scale(1.1);
 			}
-			i:active {
+			button:active {
 				transform: scale(1);
+			}
+			button{
+				border: none;
+				background-color: white;
 			}
 		}
 		.priceCart {
@@ -77,11 +81,15 @@
 		.quantityInCart {
 			width: 15%;
 			text-align: center;
-			i:hover {
+			button:hover {
 				transform: scale(1.1);
 			}
-			i:active {
+			button:active {
 				transform: scale(1);
+			}
+			button{
+				border:none;
+				background-color: white;
 			}
 		}
 		.totalCart {
@@ -170,4 +178,5 @@ form div{
 		}
 	}
 }
+
 

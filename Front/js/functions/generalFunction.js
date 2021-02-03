@@ -1,6 +1,6 @@
 /* ********** Fonction totalCost ********** */
 // ***** Fonction qui calcule le prix total des articles dans le panier ***** //
-function totalCost(products, action) {
+function totalPrice(products, action) {
 	let cartCost = localStorage.getItem('totalCost');
 
 	if (action == 'decrease') {
@@ -15,7 +15,7 @@ function totalCost(products, action) {
 }
 
 /* ********** Fonction CartNumbers ********** */
-// ***** Fonction qui permet d'ajouter un article dans le localStorage et d'en afficher le nombre dans le header ***** //
+// ***** Fonction qui permet de comptabiliser le nombre d'article dans le panier ***** //
 function cartNumbers(products, action) {
 	let productNumbers = localStorage.getItem('cartNumbers');
 	productNumbers = parseInt(productNumbers);
@@ -25,27 +25,17 @@ function cartNumbers(products, action) {
 
 	if (action == 'decrease') {
 		localStorage.setItem('cartNumbers', productNumbers - 1);
-		alert(
-			'Vous venez de retirer un article ' + products.name + ' du panier',
-		);
 	} else if (productNumbers) {
 		localStorage.setItem('cartNumbers', productNumbers + 1);
-		document.querySelector('.cart span').textContent = productNumbers + 1;
-		alert(
-			"Vous venez d'ajouter l'article " + products.name + ' dans le panier',
-		);
 	} else {
 		localStorage.setItem('cartNumbers', 1);
-		document.querySelector('.cart span').textContent = 1;
-		alert(
-			"Vous venez d'ajouter l'article " + products.name + ' dans le panier',
-		);
 	}
+	//Fonction qui ajoute l'objet products dans le panier
 	setItems(products);
 }
 
 /* ********** Fonction setItems ********** */
-// ***** Si il y a déjà un produit dans le localStorage cette fonction permet d'en ajouter un different de celui qui est déjà présent ***** //
+// ***** Fonction qui ajoute l'objet products dans le panier ***** //
 function setItems(products) {
 	let cartItems = localStorage.getItem('productInCart');
 	cartItems = JSON.parse(cartItems);
