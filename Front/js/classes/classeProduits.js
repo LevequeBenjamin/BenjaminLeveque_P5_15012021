@@ -94,9 +94,22 @@ class Produits {
 			// Fonction qui calcule le total du prix des articles dans le panier
 			totalPrice(products);
 			new OnLoadCartNumbers();
-			alert(
-				"Vous venez d'ajouter l'article " + products.name + ' dans le panier',
-			);
+
+			//Sécurité en cas de problème de mise dans le panier
+			let productNumbers = JSON.parse(localStorage.getItem('cartNumbers'));
+			console.log(productNumbers);
+			let cartItems = JSON.parse(localStorage.getItem('productInCart'));
+			console.log(cartItems);
+			if (
+				(cartItems == null && productNumbers == null) ||
+				productNumbers == 0
+			) {
+				alert('Escusez nous, un problème est survenue');
+			} else {
+				alert(
+					"Vous venez d'ajouter l'article " + products.name + ' dans le panier',
+				);
+			}
 		});
 	}
 }
