@@ -406,6 +406,7 @@ footer .footer .social__mg a :hover {
 
 /* *************** Formulaire de contact ******************** */
 #buyForm {
+  display: none;
   background-color: #f6f6f6;
   margin: 0 auto;
   padding: 1em;

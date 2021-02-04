@@ -17,136 +17,145 @@ class Cart {
 		let cartEmptyContainers = document.getElementById('cartEmptyContainer');
 		let sectionBuild = document.getElementById('build');
 
-    if (cartItems) {
+		if (cartItems) {
 			productContainer.innerHTML = ' ';
-	
-		//Construction des objets products
-		for (let i = 0; i < Object.values(cartItems).length; i++) {
-			let products = new Products(
-				Object.values(cartItems)[i].description,
-				Object.values(cartItems)[i].imageUrl,
-				Object.values(cartItems)[i].lenses,
-				Object.values(cartItems)[i].name,
-				Object.values(cartItems)[i].price,
-				Object.values(cartItems)[i]._id,
-				Object.values(cartItems)[i].inCart,
-			);
-			console.log(products);
-   
-			/* ********** CREATION STRUCTURE POUR IMPORT DES ARTICLES DANS LE PANIER********** */
-			let product = document.createElement('div');
-			let productCart = document.createElement('div');
-			let productIconClose = document.createElement('button');
-			let productImageLink = document.createElement('a');
-			let productImage = document.createElement('img');
-			let productName = document.createElement('h3');
-			let productPrice = document.createElement('div');
-			let productPriceSpan = document.createElement('span');
-			let productQuantity = document.createElement('div');
-			let productIconMoin = document.createElement('button');
-			let productQuantitySpan = document.createElement('span');
-			let productIconPlus = document.createElement('button');
-			let productTotal = document.createElement('div');
+
+			//Construction des objets products
+			for (let i = 0; i < Object.values(cartItems).length; i++) {
+				let products = new Products(
+					Object.values(cartItems)[i].description,
+					Object.values(cartItems)[i].imageUrl,
+					Object.values(cartItems)[i].lenses,
+					Object.values(cartItems)[i].name,
+					Object.values(cartItems)[i].price,
+					Object.values(cartItems)[i]._id,
+					Object.values(cartItems)[i].inCart,
+				);
+				console.log(products);
+
+				/* ********** CREATION STRUCTURE POUR IMPORT DES ARTICLES DANS LE PANIER********** */
+				let product = document.createElement('div');
+				let productCart = document.createElement('div');
+				let productIconClose = document.createElement('button');
+				let productImageLink = document.createElement('a');
+				let productImage = document.createElement('img');
+				let productName = document.createElement('h3');
+				let productPrice = document.createElement('div');
+				let productPriceSpan = document.createElement('span');
+				let productQuantity = document.createElement('div');
+				let productIconMoin = document.createElement('button');
+				let productQuantitySpan = document.createElement('span');
+				let productIconPlus = document.createElement('button');
+				let productTotal = document.createElement('div');
+
+				//Ajout des attributs au balise pour la création du style
+				product.setAttribute('class', 'product');
+				productCart.setAttribute('class', 'titleCart title');
+				productIconClose.setAttribute(
+					'class',
+					'fas fa-trash-alt deleteButtons btnDecreaseIncrease',
+				);
+				productIconClose.setAttribute('type', 'button');
+				productIconClose.setAttribute('aria-label', 'delete');
+				productImageLink.setAttribute(
+					'href',
+					'products.html?id=' + products._id,
+				);
+				productImage.setAttribute('src', products.imageUrl);
+				productImage.setAttribute('alt', 'image du produit');
+				productPrice.setAttribute('class', 'priceCart price');
+				productQuantity.setAttribute('class', 'quantityInCart quantity');
+				productIconMoin.setAttribute(
+					'class',
+					'fas fa-minus-square decreaseButtons btnDecreaseIncrease',
+				);
+				productIconMoin.setAttribute('type', 'button');
+				productIconMoin.setAttribute('aria-label', 'decrease');
+				productQuantitySpan.setAttribute('class', 'quantitySpan');
+				productIconPlus.setAttribute(
+					'class',
+					'fas fa-plus-square increaseButtons btnDecreaseIncrease',
+				);
+				productIconPlus.setAttribute('type', 'button');
+				productIconPlus.setAttribute('aria-label', 'increase');
+				productTotal.setAttribute('class', 'totalCart total');
+
+				//Agencement des éléments
+				productContainer.appendChild(product);
+				product.appendChild(productCart);
+				productCart.appendChild(productIconClose);
+				productCart.appendChild(productImageLink);
+				productImageLink.appendChild(productImage);
+				productCart.appendChild(productName);
+				product.appendChild(productPrice);
+				productPrice.appendChild(productPriceSpan);
+				product.appendChild(productQuantity);
+				productQuantity.appendChild(productIconMoin);
+				productQuantity.appendChild(productQuantitySpan);
+				productQuantity.appendChild(productIconPlus);
+				product.appendChild(productTotal);
+
+				//Contenu des balises
+				productIconClose.textContent = '';
+				productName.textContent = products.name;
+				productPriceSpan.textContent = products.price / 100 + ',00 €';
+				productQuantitySpan.textContent = products.inCart;
+				productTotal.textContent =
+					(products.inCart * products.price) / 100 + ',00 €';
+			}
+			/* ********** CREATION STRUCTURE POUR IMPORT DU TOTAL ********** */
+			let cartPrice = localStorage.getItem('totalPrice');
+			let productTotalPrice = document.createElement('div');
+			let productTotalPriceCheck = document.createElement('div');
 
 			//Ajout des attributs au balise pour la création du style
-			product.setAttribute('class', 'product');
-			productCart.setAttribute('class', 'titleCart title');
-			productIconClose.setAttribute(
-				'class',
-				'fas fa-trash-alt deleteButtons btnDecreaseIncrease',
-			);
-			productIconClose.setAttribute('type', 'button');
-			productIconClose.setAttribute('aria-label', 'delete');
-			productImageLink.setAttribute('href', 'products.html?id=' + products._id);
-			productImage.setAttribute('src', products.imageUrl);
-			productImage.setAttribute('alt', 'image du produit');
-			productPrice.setAttribute('class', 'priceCart price');
-			productQuantity.setAttribute('class', 'quantityInCart quantity');
-			productIconMoin.setAttribute(
-				'class',
-				'fas fa-minus-square decreaseButtons btnDecreaseIncrease',
-			);
-			productIconMoin.setAttribute('type', 'button');
-			productIconMoin.setAttribute('aria-label', 'decrease');
-			productQuantitySpan.setAttribute('class', 'quantitySpan');
-			productIconPlus.setAttribute(
-				'class',
-				'fas fa-plus-square increaseButtons btnDecreaseIncrease',
-			);
-			productIconPlus.setAttribute('type', 'button');
-			productIconPlus.setAttribute('aria-label', 'increase');
-			productTotal.setAttribute('class', 'totalCart total');
+			productTotalPrice.setAttribute('class', 'productTotalPrice');
+			productTotalPriceCheck.setAttribute('class', 'productTotalPriceCheck');
 
 			//Agencement des éléments
-			productContainer.appendChild(product);
-			product.appendChild(productCart);
-			productCart.appendChild(productIconClose);
-			productCart.appendChild(productImageLink);
-			productImageLink.appendChild(productImage);
-			productCart.appendChild(productName);
-			product.appendChild(productPrice);
-			productPrice.appendChild(productPriceSpan);
-			product.appendChild(productQuantity);
-			productQuantity.appendChild(productIconMoin);
-			productQuantity.appendChild(productQuantitySpan);
-			productQuantity.appendChild(productIconPlus);
-			product.appendChild(productTotal);
+			productContainer.appendChild(productTotalPrice);
+			productTotalPrice.appendChild(productTotalPriceCheck);
 
 			//Contenu des balises
-			productIconClose.textContent = '';
-			productName.textContent = products.name;
-			productPriceSpan.textContent = products.price / 100 + ',00 €';
-			productQuantitySpan.textContent = products.inCart;
-			productTotal.textContent =
-				(products.inCart * products.price) / 100 + ',00 €';
+			productTotalPriceCheck.textContent = `TOTAL TTC : ${cartPrice / 100},00€`;
+
+			/* ********** CREATION STRUCTURE POUR IMPORT BOUTONS ********** */
+			let buttonBuy = document.createElement('div');
+			let buttonBuyBuy = document.createElement('button');
+			let buttonContinueAchat = document.createElement('button');
+
+			//Ajout des attributs au balise pour la création du style
+			buttonBuy.setAttribute('class', 'buttonBuy');
+			buttonContinueAchat.setAttribute('id', 'buttonContinueAchat');
+			buttonContinueAchat.setAttribute('class', 'btn btnAnim');
+			buttonContinueAchat.setAttribute(
+				'onclick',
+				"window.location.href = '../index.html' ",
+			);
+			buttonBuyBuy.setAttribute('id', 'buttonBuyBuy');
+			buttonBuyBuy.setAttribute('class', 'btn btnAnim');
+			buttonBuyBuy.setAttribute('type', 'button');
+			buttonBuyBuy.setAttribute('onclick', "location.href = '#buyForm' ");
+
+			//Agencement des éléments
+			productContainer.appendChild(buttonBuy);
+			buttonBuy.appendChild(buttonContinueAchat);
+			buttonBuy.appendChild(buttonBuyBuy);
+
+			//Contenu des balises
+			buttonContinueAchat.textContent = 'Continuer les achats';
+			buttonBuyBuy.textContent = 'Passer commande';
+
+			/* ********** CREATION DU FORMULAIRE ********** */
+			// On lance la fonction qui créer le formulaire
+			new Formulaire();
+			//Apparition du formulaire utilisateur au clic sur le bouton "Passer commande"
+			const openOrder = document.getElementById('buttonBuyBuy');
+			openOrder.addEventListener('click', () => {
+				document.getElementById('buyForm').style.display = 'block';
+			});
 		}
-		/* ********** CREATION STRUCTURE POUR IMPORT DU TOTAL ********** */
-		let cartPrice = localStorage.getItem('totalPrice');
-		let productTotalPrice = document.createElement('div');
-		let productTotalPriceCheck = document.createElement('div');
 
-		//Ajout des attributs au balise pour la création du style
-		productTotalPrice.setAttribute('class', 'productTotalPrice');
-		productTotalPriceCheck.setAttribute('class', 'productTotalPriceCheck');
-
-		//Agencement des éléments
-		productContainer.appendChild(productTotalPrice);
-		productTotalPrice.appendChild(productTotalPriceCheck);
-
-		//Contenu des balises
-		productTotalPriceCheck.textContent = `TOTAL TTC : ${cartPrice / 100},00€`;
-
-		/* ********** CREATION STRUCTURE POUR IMPORT BOUTONS ********** */
-		let buttonBuy = document.createElement('div');
-		let buttonBuyBuy = document.createElement('button');
-		let buttonContinueAchat = document.createElement('button');
-
-		//Ajout des attributs au balise pour la création du style
-		buttonBuy.setAttribute('class', 'buttonBuy');
-		buttonContinueAchat.setAttribute('id', 'buttonContinueAchat');
-		buttonContinueAchat.setAttribute('class', 'btn btnAnim');
-		buttonContinueAchat.setAttribute(
-			'onclick',
-			"window.location.href = '../index.html' ",
-		);
-		buttonBuyBuy.setAttribute('id', 'buttonBuyBuy');
-		buttonBuyBuy.setAttribute('class', 'btn btnAnim');
-		buttonBuyBuy.setAttribute('type', 'button');
-		buttonBuyBuy.setAttribute('onclick', "location.href = '#buyForm' ");
-
-		//Agencement des éléments
-		productContainer.appendChild(buttonBuy);
-		buttonBuy.appendChild(buttonContinueAchat);
-		buttonBuy.appendChild(buttonBuyBuy);
-
-		//Contenu des balises
-		buttonContinueAchat.textContent = 'Continuer les achats';
-		buttonBuyBuy.textContent = 'Passer commande';
-
-		/* ********** CREATION DU FORMULAIRE ********** */
-		// On lance la fonction qui créer le formulaire
-		new Formulaire();
-    }
 		/* ********** CREATION DU BOUTON VIDER LE PANIER ********** */
 		let btnAnnuler = document.createElement('button');
 		//Ajout des attributs au balise pour la création du style
@@ -269,7 +278,7 @@ class Cart {
 				this.displayCart();
 			});
 		}
-    new OnLoadCartNumbers();
+		new OnLoadCartNumbers();
 	}
 }
 
