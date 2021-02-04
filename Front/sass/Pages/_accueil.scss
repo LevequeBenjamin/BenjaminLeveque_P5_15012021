@@ -1,11 +1,12 @@
 /* ******************** Page index ******************** */
 // Styles de la banderole
 .banderole {
-	background-image: url("/Front/photosFront/thumb-1920-887690.webp");
+	background-color: black;
+	background-image: url("photosFront/thumb-1920-887690.png");
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
-	background-color: black;
+	
 	height: 1000px;
 	@include flexCenter;
 	align-items: center;

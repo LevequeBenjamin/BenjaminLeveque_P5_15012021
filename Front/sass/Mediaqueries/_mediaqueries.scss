@@ -1,100 +1,113 @@
 /* ******************** Header ******************** */
 // Styles des headers
-@media all and (max-width: 426px){
-  header{
-    nav{
-      padding: 0;
-      ul li{
-        padding-left: 0;
-      }
-    }
-  }
+@media all and (max-width: 426px) {
+	header {
+		nav {
+			padding: 0;
+			ul li {
+				padding-left: 0;
+			}
+		}
+	}
+}
+
+/* ******************** Banderole ******************** */
+@media all and(max-width: 510px) {
+	.banderole {
+		height: 900px;
+		.banderole__title {
+			h2 {
+				font-size: 5rem;
+			}
+			h3 {
+				font-size: 2.5rem;
+			}
+		}
+	}
 }
 
 /* ******************** Page Products ******************** */
 // Styles de la page produit
 @media all and(max-width: 426px) {
-  .card{
-    margin: 0 !important;
-    padding: 10px !important;
-    width: 100% !important; 
-  }
+	.card {
+		margin: 0 !important;
+		padding: 10px !important;
+		width: 100% !important;
+	}
 }
 
 /* ******************** Page Panier ******************** */
 // Styles de la page panier
 @media all and(max-width: 515px) {
-  .buildTitle{
-    padding-left: 5px;
-    padding-right: 5px;
-  }
-  .title{
-    width: 40% !important;
-  }
-  .total{
-    width: 30% !important;
-  }
-  .quantity{
-    width: 30% !important;
-  }
-  .titleCart a img{
-    display: none;
-  }
-  h3{
-    font-size: 1rem;
-  }
-  p{
-    font-size: 0.8rem;
-  }
-  .price{
-    display: none;
-  }
-  .product{
-    padding: 10px 5px 10px 5px !important;
-  }
-  .buttonBuy{
-    justify-content: center !important;
-  }
-  // Formulaire
-  #buyForm{
-    padding: 0 5px 20px 5px;
-    width: 97%;
-  }
-  label{
-    text-align: left !important;
-  }
+	.buildTitle {
+		padding-left: 5px;
+		padding-right: 5px;
+	}
+	.title {
+		width: 40% !important;
+	}
+	.total {
+		width: 30% !important;
+	}
+	.quantity {
+		width: 30% !important;
+	}
+	.titleCart a img {
+		display: none;
+	}
+	h3 {
+		font-size: 1rem;
+	}
+	p {
+		font-size: 0.8rem;
+	}
+	.price {
+		display: none;
+	}
+	.product {
+		padding: 10px 5px 10px 5px !important;
+	}
+	.buttonBuy {
+		justify-content: center !important;
+	}
+	// Formulaire
+	#buyForm {
+		padding: 0 5px 20px 5px;
+		width: 97%;
+	}
+	label {
+		text-align: left !important;
+	}
 }
 
 @media all and(max-width: 410px) {
-  .errorForm{
-    left: 0;
-    top: 40px !important;
-  }
+	.errorForm {
+		left: 0;
+		top: 40px !important;
+	}
 }
 
 /* ******************** Page 404 ******************** */
 // Styles de la page 404
 @media all and(max-width: 768px) {
-  .noFound{
-    h1{
-      font-size: 4rem !important;
-    }
-    h2{
-      font-size: 1rem !important;
-    }
-    p{
-      font-size: 1rem !important;
-    }
-    .noFoundImg img{
-      max-height: 200px !important;
-    }
-  }
+	.noFound {
+		h1 {
+			font-size: 4rem !important;
+		}
+		h2 {
+			font-size: 1rem !important;
+		}
+		p {
+			font-size: 1rem !important;
+		}
+		.noFoundImg img {
+			max-height: 200px !important;
+		}
+	}
 }
 
 @media all and(max-width: 480px) {
-  .noFound{
-    flex-direction: column-reverse;
-  }
+	.noFound {
+		flex-direction: column-reverse;
+	}
 }
-
-

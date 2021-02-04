@@ -201,11 +201,11 @@ footer .footer .social__mg a :hover {
 
 /* ******************** Page index ******************** */
 .banderole {
-  background-image: url("/Front/photosFront/thumb-1920-887690.webp");
+  background-color: black;
+  background-image: url("photosFront/thumb-1920-887690.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  background-color: black;
   height: 1000px;
   display: flex;
   justify-content: center;
@@ -493,6 +493,18 @@ form div {
   }
   header nav ul li {
     padding-left: 0;
+  }
+}
+/* ******************** Banderole ******************** */
+@media all and (max-width: 510px) {
+  .banderole {
+    height: 900px;
+  }
+  .banderole .banderole__title h2 {
+    font-size: 5rem;
+  }
+  .banderole .banderole__title h3 {
+    font-size: 2.5rem;
   }
 }
 /* ******************** Page Products ******************** */
