@@ -41,7 +41,6 @@ class Produits {
 		let detailCameraDescription = document.createElement('p');
 		let detailCheck = document.createElement('div');
 		let detailSelect = document.createElement('select');
-		let detailSelectOptions = document.createElement('option');
 		let detailPrice = document.createElement('h4');
 		let detailBtn = document.createElement('button');
 
@@ -66,20 +65,19 @@ class Produits {
 		detailDescription.appendChild(detailPrice);
 		detailDescription.appendChild(detailCheck);
 		detailCheck.appendChild(detailSelect);
-		detailSelect.appendChild(detailSelectOptions);
 		detailCheck.appendChild(detailBtn);
 
 		//Contenu des balises
 		detailName.textContent = products.name;
 		detailPrice.textContent = products.price / 100 + ',00 €';
 		detailCameraDescription.textContent = products.description;
-		detailSelectOptions.textContent = '--Choisissez votre objectif--';
 		detailBtn.textContent = 'Ajouter au panier';
 
 		//Affiche les options disponible selon le produit
 		let select = document.getElementById('selects');
 		for (let i = 0; i < products.lenses.length; i++) {
 			let option = document.createElement('option');
+			option.setAttribute('id', 'selectOption');
 			select.appendChild(option);
 			option.textContent = products.lenses[i];
 		}

@@ -530,6 +530,10 @@ form div {
     font-size: 1rem;
   }
 
+  p {
+    font-size: 0.8rem;
+  }
+
   .price {
     display: none;
   }
@@ -615,6 +619,9 @@ form div {
 #detailProduit .card .detailDescription .checkArticle {
   display: flex;
   justify-content: space-between;
+}
+#detailProduit .card .detailDescription #selects {
+  width: 160px;
 }
 #detailProduit .card .detailDescription .containerLink {
   display: flex;

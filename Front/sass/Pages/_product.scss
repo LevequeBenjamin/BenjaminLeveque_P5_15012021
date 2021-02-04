@@ -37,6 +37,9 @@
             justify-content: space-between;
             
           }
+          #selects{
+            width: 160px;
+          }
           .containerLink{
             @include flexCenter;
             align-items: center;

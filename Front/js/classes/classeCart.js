@@ -39,7 +39,9 @@ class Cart {
 				let productIconClose = document.createElement('button');
 				let productImageLink = document.createElement('a');
 				let productImage = document.createElement('img');
+				let productDivName = document.createElement('div');
 				let productName = document.createElement('h3');
+				let productLense = document.createElement('p');
 				let productPrice = document.createElement('div');
 				let productPriceSpan = document.createElement('span');
 				let productQuantity = document.createElement('div');
@@ -86,7 +88,11 @@ class Cart {
 				productCart.appendChild(productIconClose);
 				productCart.appendChild(productImageLink);
 				productImageLink.appendChild(productImage);
-				productCart.appendChild(productName);
+
+				productCart.appendChild(productDivName);
+				productDivName.appendChild(productName);
+				productDivName.appendChild(productLense);
+
 				product.appendChild(productPrice);
 				productPrice.appendChild(productPriceSpan);
 				product.appendChild(productQuantity);
@@ -98,6 +104,7 @@ class Cart {
 				//Contenu des balises
 				productIconClose.textContent = '';
 				productName.textContent = products.name;
+				productLense.textContent = products.lenses;
 				productPriceSpan.textContent = products.price / 100 + ',00 €';
 				productQuantitySpan.textContent = products.inCart;
 				productTotal.textContent =
@@ -192,7 +199,10 @@ class Cart {
 
 		for (let i = 0; i < deleteButtons.length; i++) {
 			deleteButtons[i].addEventListener('click', () => {
-				productName = deleteButtons[i].parentElement.textContent;
+				productName =
+					deleteButtons[i].nextElementSibling.nextElementSibling.children[0]
+						.textContent;
+
 				//*console.log(cartItems[productName].name + " " + cartItems[productName].inCart);
 				localStorage.setItem(
 					'cartNumbers',
@@ -242,6 +252,7 @@ class Cart {
 				].parentElement.previousElementSibling.previousElementSibling.querySelector(
 					'h3',
 				).textContent;
+				console.log(currentProduct);
 
 				//*console.log("j'avais",currentQuantity,currentProduct,'dans mon panier et maintenant -1',);
 
@@ -266,6 +277,7 @@ class Cart {
 				].parentElement.previousElementSibling.previousElementSibling.querySelector(
 					'h3',
 				).textContent;
+				console.log(currentProduct);
 
 				//console.log("j'avais",currentQuantity,currentProduct,'dans mon panier et maintenant +1',);
 
