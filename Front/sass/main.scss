@@ -1,6 +1,8 @@
 @import "Utils/variables";
 @import "Utils/mixin";
+@import "Utils/keyframes";
 @import "Utils/flexCenter";
+@import "Utils/anim";
 @import "Base/base";
 @import "Layout/body";
 @import "Layout/header";
@@ -12,4 +14,5 @@
 @import "Pages/confirmationBuy";
 @import "Pages/404";
 @import "Composants/btn";
+
 

@@ -46,7 +46,7 @@ class Produits {
 		let detailBtn = document.createElement('button');
 
 		//Ajout des attributs au balise pour la création du style
-		detailCard.setAttribute('class', 'card');
+		detailCard.setAttribute('class', 'card apparitionAnim');
 		detailImage.setAttribute('src', products.imageUrl);
 		detailImage.setAttribute('alt', 'image du produit');
 		detailDescription.setAttribute('class', 'detailDescription');

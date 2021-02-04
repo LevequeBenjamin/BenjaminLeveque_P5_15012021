@@ -42,6 +42,7 @@ class Formulaire {
 
 		//Ajout des attributs au balise pour la création du style
 		buyForm.setAttribute('id', 'buyForm');
+		buyForm.setAttribute("class", "apparitionAnim");
 		formRegister.setAttribute('class', 'formRegister');
 
 		divUnLabel.setAttribute('for', 'lastName');
